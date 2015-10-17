@@ -21,8 +21,7 @@ var paths = {
   scriptSrc: 'src/scripts/',
   scriptDist: 'dist/scripts/',
 
-  templateSrc: 'templates/',
-  templateDist: 'dist/templates/',
+  templateSrc: '.',
 
   imageSrc: 'src/images/',
   imageDist: 'images/'
@@ -214,7 +213,7 @@ Runs tasks when files change
 gulp.task('watch', function() {
   gulp.watch([paths.styleSrc + '**/*.scss'], ['styles']);
   gulp.watch([paths.scriptSrc + '**/*.js'], ['lint', 'scripts']);
-  gulp.watch([paths.templateSrc + '**/*.html', paths.templateSrc + '**/*.php'], ['templates']);
+  gulp.watch([paths.templateSrc + '**/*.html', paths.templateSrc + '**/*.php', paths.templateSrc + '**/*.twig'], ['templates']);
   gulp.watch([paths.imageSrc + '**/*'], ['images']);
 });
 
