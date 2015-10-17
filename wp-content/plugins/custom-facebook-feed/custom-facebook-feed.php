@@ -3,7 +3,7 @@
 Plugin Name: Custom Facebook Feed
 Plugin URI: http://smashballoon.com/custom-facebook-feed
 Description: Add completely customizable Facebook feeds to your WordPress site
-Version: 2.3.7
+Version: 2.3.9
 Author: Smash Balloon
 Author URI: http://smashballoon.com/
 License: GPLv2 or later
@@ -25,7 +25,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 //Include admin
 include dirname( __FILE__ ) .'/custom-facebook-feed-admin.php';
 
-define('CFFVER', '2.3.7');
+define('CFFVER', '2.3.9');
 
 // Add shortcodes
 add_shortcode('custom-facebook-feed', 'display_cff');
@@ -1059,7 +1059,12 @@ function display_cff($atts) {
 
                 //Start HTML for post text
                 $cff_post_text .= '<span class="cff-text" data-color="'.$cff_posttext_link_color.'">';
-                if ($cff_title_link) $cff_post_text .= '<a class="cff-post-text-link" '.$cff_title_styles.' href="'.$link.'" '.$target.'>';
+                if ($cff_title_link){
+                    //Link to the Facebook post if it's a link or a video
+                    ($cff_post_type == 'link' || $cff_post_type == 'video') ? $text_link = "https://www.facebook.com/" . $page_id . "/posts/" . $PostID[1] : $text_link = $link;
+
+                    $cff_post_text .= '<a class="cff-post-text-link" '.$cff_title_styles.' href="'.$text_link.'" '.$target.$cff_nofollow.'>';
+                }
 
                 //Which content should we use?
                 $cff_post_text_type = '';
@@ -1111,8 +1116,11 @@ function display_cff($atts) {
                         if( cff_stripos_arr($post_text, $cff_html_check_array) !== false ) {
                             //Loop through the tags
                             foreach($text_tags as $message_tag ) {
-                                $tag_name = $message_tag[0]->name;
-                                $tag_link = '<a href="http://facebook.com/' . $message_tag[0]->id . '" style="color: #'.$cff_posttext_link_color.';" target="_blank">' . $message_tag[0]->name . '</a>';
+
+                                ( isset($message_tag->id) ) ? $message_tag = $message_tag : $message_tag = $message_tag[0];
+
+                                $tag_name = $message_tag->name;
+                                $tag_link = '<a href="http://facebook.com/' . $message_tag->id . '" style="color: #'.$cff_posttext_link_color.';" target="_blank">' . $message_tag->name . '</a>';
 
                                 $post_text = str_replace($tag_name, $tag_link, $post_text);
                             }
@@ -1124,15 +1132,18 @@ function display_cff($atts) {
                             $i = 0;
                             foreach($text_tags as $message_tag ) {
                                 $i++;
+
+                                ( isset($message_tag->id) ) ? $message_tag = $message_tag : $message_tag = $message_tag[0];
+
                                 $message_tags_arr = cff_array_push_assoc(
                                     $message_tags_arr,
                                     $i,
                                     array(
-                                        'id' => $message_tag[0]->id,
-                                        'name' => $message_tag[0]->name,
-                                        'type' => isset($message_tag[0]->type) ? $message_tag[0]->type : '',
-                                        'offset' => $message_tag[0]->offset,
-                                        'length' => $message_tag[0]->length
+                                        'id' => $message_tag->id,
+                                        'name' => $message_tag->name,
+                                        'type' => isset($message_tag->type) ? $message_tag->type : '',
+                                        'offset' => $message_tag->offset,
+                                        'length' => $message_tag->length
                                     )
                                 );
                             }
