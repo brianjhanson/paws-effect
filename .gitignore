@@ -98,3 +98,5 @@ wp-content/themes/twenty*/
 
 # ignore node/grunt dependency directories
 wp-content/themes/paws-effect/node_modules/
+wp-content/themes/paws-effect/bower_components/
+wp-content/themes/paws-effect/dist/*
