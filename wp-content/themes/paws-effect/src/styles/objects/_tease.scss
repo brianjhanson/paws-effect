@@ -1,0 +1,18 @@
+.tease {
+  //
+}
+
+.tease__thumb {
+
+}
+
+.tease__title {
+  @include rem(margin-top, 12px);
+  @include rem(font-size, 26px);
+}
+
+.tease__body {
+  @include rem(margin-top, 10px);
+  @include rem(font-size, 14px);
+  line-height: 1.6;
+}

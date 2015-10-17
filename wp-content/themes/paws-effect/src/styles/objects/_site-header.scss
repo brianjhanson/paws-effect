@@ -1,0 +1,32 @@
+.site-header {
+  @include row;
+  padding-top: 1em;
+
+  @include mq(small) {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+  }
+
+  .admin-bar & {
+    top: 32px;
+  }
+}
+
+.site-header__logo {
+  max-width: 240px;
+  
+  @include mq(small) {
+    @include span(4 at 1);
+  }
+}
+
+.site-header__nav {
+  @include rem(margin, 1em 0);
+  
+  @include mq(small) {
+    @include span(12 at 5);
+  }
+}

@@ -1,0 +1,19 @@
+.primary-nav {
+  @include hide;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+  a {
+    color: c(text);
+    text-decoration: none;
+
+    @include on-event {
+      color: c(havelock);
+    }
+  }
+
+  .is-open & {
+    @include show;
+  }
+}

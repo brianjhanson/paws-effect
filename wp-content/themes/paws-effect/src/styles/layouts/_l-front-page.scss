@@ -1,0 +1,17 @@
+.l-front-page {
+}
+
+.l-front-page__intro {
+  @include container;
+  @include rem(padding, 40px 0 60px);
+  background-color: c(mustard);
+  border-bottom: 20px solid c(lightning);
+
+  @include mq(small) {
+    @include rem(padding, 130px 0 120px);
+  }
+}
+
+.l-front-page__community {
+  background-color: #C2DBF2;
+}

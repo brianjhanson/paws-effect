@@ -1,0 +1,42 @@
+/*
+  Sample useage
+
+  @include ff(primary, 22 24 28 30);
+  
+ */
+
+// ----------------------------------------
+// Basics
+// ----------------------------------------
+$rem-baseline: 16px;
+
+// ----------------------------------------
+// Font faces 
+// ----------------------------------------
+
+$font-faces: (
+  body: ("proxima-nova", sans-serif),
+  secondary: ("rucksack",sans-serif)
+);
+
+@mixin ff($key: body) {
+  font-family: map-get($font-faces, $key);
+}
+
+// ----------------------------------------
+// Headings
+// ----------------------------------------
+
+$headings: h1, h2, h3, h4, h5, h6;
+
+$heading-sizes: (
+  giga: 96px
+);
+
+@function heading-size($key) {
+  @return map-get($heading-sizes, $key);
+}
+
+@mixin h-size($key) {
+  font-size: heading-size($key);
+}

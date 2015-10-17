@@ -1,0 +1,15 @@
+@mixin ir($ratio, $width: 100%, $child: '> *') {
+  padding-top: (1 / $ratio) * $width;
+  width: $width;
+  position: relative;
+  height: 0;
+
+  #{$child} {
+    display: block;
+    position: absolute;
+    width: 100%;
+    top: 0;
+    margin: 0;
+    padding: 0;
+  }
+}

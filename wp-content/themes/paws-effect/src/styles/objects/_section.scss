@@ -1,0 +1,7 @@
+.section {
+  @include rem(padding, 40px 0);
+}
+
+.section__body {
+  @include rem(margin-top, 40px);
+}

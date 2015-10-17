@@ -1,0 +1,15 @@
+.l-community {
+  @include container;
+}
+
+.l-community__social {
+  @include mq(small) {
+    @include span(3 at 1);
+  }
+}
+
+.l-community__blog {
+  @include mq(small) {
+    @include span(4 at 5);
+  }
+}

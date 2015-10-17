@@ -1,0 +1,26 @@
+html {
+  @include ff;
+  @include rem-baseline;
+  box-sizing: border-box;
+}
+
+body {
+  color: c(text);
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+p {
+  margin: 0;
+}
+
+img {
+  max-width: 100%;
+  display: inline-block;
+}
+
+figure {
+  margin: 0;
+}

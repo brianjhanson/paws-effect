@@ -1,0 +1,10 @@
+$breakpoints: (
+  small: 600px
+);
+
+@mixin mq($key) {
+
+  @include breakpoint( map-get($breakpoints, $key) ) {
+    @content;
+  }
+}

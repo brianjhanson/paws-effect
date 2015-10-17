@@ -1,0 +1,19 @@
+.nav {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nav__item {
+  display: inline-block;
+  margin-right: 1em;
+}
+
+.nav--right {
+  text-align: right;
+
+  .nav__item {
+    margin-right: 0;
+    margin-left: 1em;
+  }
+}

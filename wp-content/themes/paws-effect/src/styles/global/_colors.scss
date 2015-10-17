@@ -1,0 +1,10 @@
+$colors: (
+  text: #303644,
+  mustard: #FFDE55,
+  lightning: #FABE17,
+  havelock: #5987D8
+);
+
+@function c($key) {
+  @return map-get($colors, $key);
+}

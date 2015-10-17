@@ -1,0 +1,10 @@
+#{$headings} {
+  @include ff(secondary);
+  margin: 0;
+}
+
+.giga-head {
+  // @include h-size(giga);
+  @include rem(font-size, 36px);
+  line-height: 1.1;
+}

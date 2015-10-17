@@ -1,0 +1,41 @@
+.l-fp-intro {
+  @include row;
+}
+
+.l-fp-intro__title {
+
+  @include mq(small) {
+    @include span(8 at 2);
+  }
+}
+
+.l-fp-intro__content {
+  @include rem(margin-top, 20px);
+
+  @include mq(small) {
+    @include span(6 at 2);
+    @include rem(padding-top, 20px);
+    clear: left;
+    border-top: 5px solid c(text);
+  }
+}
+
+.l-fp-intro__cta {
+  @include rem(margin-top, 20px);
+  clear: left;
+  font-weight: bold;
+
+  @include mq(small) {
+    @include span(6 at 2);
+  }
+}
+
+.l-fp-intro__img {
+  @include rem(margin-top, 30px);
+  margin-left: -7%;
+  margin-right: -7%;
+
+  @include mq(small) {
+    @include span(9 at 9);
+  }
+}
