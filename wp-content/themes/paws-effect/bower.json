@@ -14,5 +14,8 @@
     "tests"
   ],
   "dependencies": {
+    "sass-rem": "~1.2.2",
+    "breakpoint-sass": "~2.6.1",
+    "susy": "~2.2.6"
   }
 }
