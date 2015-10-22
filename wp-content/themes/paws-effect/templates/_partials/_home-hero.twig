@@ -1,0 +1,16 @@
+<div class="l-home-hero">
+  <div class="l-home-hero__title">
+    <h1 class="giga-head">{{ post.intro_message | replace({'/': '<br/>'}) }}</h1>
+  </div>
+  <div class="l-home-hero__img">
+    <img src="{{ TimberImage(post.get_field('intro_image')).src }}" alt="">
+  </div>
+  <div class="l-home-hero__content">
+    <div class="lead">
+      {{ post.post_content }}
+    </div>
+    {% if post.get_field('intro_cta_link') | length %}
+      <a href="{{ post.get_field('intro_cta_link') }}" class="text-btn text-btn--lead">{{ post.get_field('intro_cta_text') }}</a>
+    {% endif %}
+  </div>
+</div>

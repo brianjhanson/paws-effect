@@ -1,0 +1,7 @@
+.event {
+  border: 1px solid #e8e8e8;
+}
+
+.event__info {
+  @include rem(padding, 16px 16px 20px);
+}

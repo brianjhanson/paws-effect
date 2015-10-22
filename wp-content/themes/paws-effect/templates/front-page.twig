@@ -2,32 +2,20 @@
 
 {% block content %}
   <div class="l-front-page">
-    <div class="l-front-page__intro">
-      <div class="l-fp-intro">
-        <div class="l-fp-intro__title">
-          <h1 class="giga-head">Take a moment.<br/>Make a difference</h1>
-        </div>
-        <div class="l-fp-intro__img">
-          <img src="http://placekitten.com/830/485" alt="">
-        </div>
-        <div class="l-fp-intro__content">
-          <div class="lead">
-            <p>We raise, train, and place service dogs with disabled veterans and children. The majority of our recipients include children with autism and combat veterans with Post-Traumatic Stress Disorder (PTSD), Traumatic Brain Injury (TBI), and mobility issues.</p>
-            <a href="#" class=>Learn More</a>
-          </div>
-        </div>
-      </div>
+    <div class="section section--yellow section--hero">
+      {% include '_partials/_home-hero.twig' %}
     </div>
     <div class="l-front-page__services">
       <section class="section">
-        <div class="l-grid">
-          <h1 class="section__title">What we do</h1>
+        <div class="l-grid l-grid--site">
+          <div class="section__title">
+            <h1 class="section-title">What we do</h1>
+          </div>
           <div class="section__body">
             <div class="l-block-grid">
-              {% set services = ['Service Dogs', 'Therapy Dogs', 'Dog Training', 'Dog Scouts'] %}
               {% for service in services %}
               <div class="l-block-grid__item">
-                {% include '_partials/tease.twig' with { title: service } %}
+                {% include '_partials/_tease.twig' with { post: service } %}
               </div>
               {% endfor %}
             </div>
@@ -37,26 +25,23 @@
     </div>
 
     <div class="l-front-page__community">
-      <div class="l-grid">
+      <div class="l-grid l-grid--site">
         <section class="section">
-          <h1 class="section__title">Our Community</h1>
+          <div class="section__title">
+            <h1 class="section-title">Our Community</h1>
+          </div>
           <div class="section__body">
             <div class="l-community">
               <div class="l-community__social">
+                <h3 class="section-sub-title">Latest from Facebook</h3>
                 {{ "[custom-facebook-feed]" | shortcodes }}
               </div>
               <div class="l-community__blog">
-                <article class="post">
-                  <header class="post__header">
-                    {{ latestPost.post_title }}
-                  </header>
-                  <div class="post__body">
-                    {{ latestPost.post_content }}
-                  </div>
-                  <footer class="post__footer">
-                    <a href="{{ latestPost.permalink }}">Read more</a>
-                  </footer>
-                </article>
+                <div class="latest-post">
+                  <h3 class="section-sub-title">Latest from the Blog</h3>
+                  {% include '_partials/_post.twig' with { post: latestPost, excerpt: true } %}
+                </div>
+                {% include '_partials/_sign-up.twig' %}
               </div>
             </div>
           </div>
@@ -65,32 +50,79 @@
     </div>
 
     <div class="l-front-page__events">
-      <div class="section">
-        <h1 class="section__title">Events</h1>
-        <div class="section__body">
-          <ul class="event-slider">
-            {% for i in 1..6 %}
-            <li class="event-slider__item">
-              <article class="event">
-                <div class="event__thumb">
-                  <img src="http://placehold.it/400x300" alt="">
-                </div>
-                <div class="event__info">
-                  <section class="event-info">
-                    <h1 class="event-info__title">Day of the Dead</h1>
-                    <h2 class="event-info__date">October 24, 2015</h2>
-                  </section>
-                </div>
-              </article>
-            </li>
-            {% endfor %}
-          </ul>
+      <div class="l-grid l-grid--site">
+        <div class="section">
+          <div class="section__title">
+            <h1 class="section-title">Events</h1>
+          </div>
+          <div class="section__body">
+            <ul class="event-slider js-slider">
+              {% for i in 1..6 %}
+              <li class="event-slider__item js-slider__item">
+                <article class="event">
+                  <div class="event__thumb">
+                    <img src="http://placehold.it/400x300" alt="">
+                  </div>
+                  <div class="event__info">
+                    <section class="event-info">
+                      <h1 class="event-info__title">Day of the Dead</h1>
+                      <h2 class="event-info__date">October 24, 2015</h2>
+                    </section>
+                  </div>
+                </article>
+              </li>
+              {% endfor %}
+            </ul>
+          </div>
+          <div class="section__cta">
+            <a href="http://paws-effect.dogbizpro.com/Public/Registration/Index.aspx" class="btn">View complete events calendar</a>
+          </div>
+          <div class="section__sign-up">
+            {% include '_partials/_sign-up.twig' %}
+          </div>
         </div>
       </div>
     </div>
 
     <div class="l-front-page__contact">
-      
-    </div>
+      <section class="l-contact">
+        <div class="l-contact__info">
+          <div class="l-contact-info">
+            <div class="l-contact-info__title">
+              <h1 class="section-title">Get in Touch</h1>
+            </div>
+            <div class="l-contact-info__body">
+              <ul class="contact-list">
+                <li class="contact-list__item">
+                  <div class="contact-item">
+                    <div class="contact-item__title">Phone</div>
+                    <div class="contact-item__number">
+                      <tel>{{ global.main_phone }}</tel>
+                    </div>
+                  </div>
+                </li>
+                <li class="contact-list__item">
+                  <div class="contact-item">
+                    <div class="contact-item__title">Email</div>
+                    <div class="contact-item__number">
+                      <a href="mailto:{{ globals.main_email }}">{{ global.main_email }}</a></div>
+                  </div>
+                </li>
+                <li class="contact-list__item">
+                  <div class="contact-item">
+                    <div class="contact-item__title">Mail</div>
+                    <div class="contact-item__number">
+                      {{ global.mailing_address | replace({'/': '<br/>'}) }}
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="l-contact__map js-map" data-lat="{{ global.map_address.lat }}" data-lng="{{ global.map_address.lng }}" data-addr="{{ global.map_address.address }}">
+        </div>
+      </div>
+    </section>
   </div>
 {% endblock %}

@@ -6,6 +6,10 @@
   @include rem(margin-bottom, 60px);
 
   @include mq(small) {
-    @include gallery(2);
+    @include gallery(4 of 8);
+  }
+
+  @include mq(medium) {
+    @include gallery(2 of 8);
   }
 }

@@ -1,0 +1,39 @@
+.l-home-hero {
+  @include container;
+  padding: 0 6%;
+  overflow-x: hidden;
+}
+
+.l-home-hero__title {
+  @include container;
+
+  @include mq(small) {
+    @include rem(margin-bottom, 60px);
+    text-align: center;
+  }
+
+  @include mq(medium) {
+    text-align: left;
+  }
+}
+
+.l-home-hero__content {
+  @include rem(margin-top, 20px);
+
+  @include mq(medium) {
+    @include span(3 at 1);
+    @include rem(padding-top, 20px);
+    @include rem(margin-top, 8%);
+    border-top: 5px solid c(text);
+  }
+}
+
+.l-home-hero__img {
+  @include rem(margin-top, 30px);
+  margin-left: -7%;
+  margin-right: -7%;
+
+  @include mq(medium) {
+    @include span(6 at 4);
+  }
+}

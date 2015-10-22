@@ -1,0 +1,31 @@
+.subscribe {
+  display: flex;
+}
+
+.subscribe__field {
+  width: 80%;
+  padding: .5em;
+  box-sizing: inherit;
+  display: block;
+  border: 1px solid #C2DBF2;
+  border-right: 0;
+
+  &:focus {
+    outline: 0;
+    border-color: c(havelock);
+  }
+}
+
+.subscribe__submit {
+  background: none;
+  background-color: c(mustard);
+  border: none;
+  padding: .5em 1em;
+  font-weight: 700;
+  border: 1px solid c(lightning);
+
+  &:focus {
+    outline: 0;
+    border: 1px solid c(havelock);
+  }
+}

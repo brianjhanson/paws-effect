@@ -4,6 +4,11 @@
   padding: 0;
   list-style: none;
 
+  @include mq(small) {
+    @include show;
+    text-align: right;
+  }
+
   a {
     color: c(text);
     text-decoration: none;
@@ -15,5 +20,37 @@
 
   .is-open & {
     @include show;
+  }
+}
+
+
+.primary-nav > li:last-child {
+  @include mq(small) {
+    margin-right: 0;
+  }
+}
+
+.primary-nav > li:last-child a {
+  @include mq(small) {
+    padding: .5em 1em;
+    background-color: #fff;
+    border-radius: 40px;
+  }
+}
+
+.primary-nav--footer {
+  text-align: left;
+  a {
+    color: #fff;
+
+    @include on-event {
+      color: c(havelock);
+    }
+  }
+
+  > li:last-child a {
+    background: none;
+    padding: 0;
+    color: c(mustard);
   }
 }

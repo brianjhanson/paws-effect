@@ -1,0 +1,10 @@
+.text-btn {
+  @include rem(margin-top, 20px);
+  display: inline-block;
+  font-weight: 700;
+  color: inherit;
+}
+
+.text-btn--lead {
+  font-size: 1.25em;
+}

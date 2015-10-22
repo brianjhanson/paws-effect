@@ -1,0 +1,26 @@
+<footer class="l-site-footer">
+  <div class="l-site-footer__nav">
+    <ul class="primary-nav primary-nav--footer" role="navigation">
+      {% for item in menu.get_items %}
+        <li class="nav__item {{item.classes | join(' ')}}">
+          <a href="{{item.get_link}}">{{item.title}}</a>
+          {% if item.get_children %}
+            <ul class="nav nav--sub-nav">
+            {% for child in item.get_children %}
+              <li class="nav__item">
+                <a href="{{child.get_link}}">{{child.title}}</a>
+              </li>
+            {% endfor %}
+            </ul>
+          {% endif %}
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+  <div class="l-site-footer__disclaimer">
+    <p class="disclaimer">Paws & Effect is a 501(c)(3) non-profit organization that raises, trains, and places service dogs with children and veterans with disabilities.</p>
+  </div>
+  <div class="l-site-footer__legal">
+    <p class="disclaimer">© {{"now" | date('Y')}} Paws & Effect. All Rights Reserved.</p>
+  </div>
+</footer>

@@ -1,0 +1,4 @@
+.section-sub-title {
+  @include rem(font-size, 18px);
+  @include rem(margin-bottom, 20px);
+}

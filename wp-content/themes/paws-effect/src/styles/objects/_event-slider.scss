@@ -1,0 +1,13 @@
+.event-slider {
+  @include rem(padding-bottom, 40px);
+  padding-left: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.event-slider__item {
+  display: inline-block;
+  width: span(3 of 8);
+  max-width: 320px;
+  margin-right: gutter() / 2;
+}

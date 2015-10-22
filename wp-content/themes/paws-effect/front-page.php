@@ -14,7 +14,13 @@ $context = Timber::get_context();
 $post = new TimberPost();
 $context['post'] = $post;
 $context['latestPost'] = Timber::get_post(array(
-  'post_type' => 'post',
-  'posts_per_page' => 1
+  'post_type' => 'post'
 ));
+
+$context['services'] = Timber::get_posts(array(
+  'post_type' => 'services',
+  'posts_per_page' => 4
+));
+
+$context['global'] = get_fields('options');
 Timber::render( array( 'front-page.twig', 'page.twig' ), $context );

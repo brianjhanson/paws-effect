@@ -3,13 +3,17 @@
 }
 
 .l-community__social {
-  @include mq(small) {
-    @include span(3 at 1);
+
+  @include mq(medium) {
+    @include span(4 at 1);
   }
 }
 
 .l-community__blog {
-  @include mq(small) {
-    @include span(4 at 5);
+  @include rem(margin-top, 30px);
+
+  @include mq(medium) {
+    @include span(4 at 6);
+    margin-top: 0;
   }
 }

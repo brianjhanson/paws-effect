@@ -1,0 +1,9 @@
+.btn {
+  @include rem(font-size, 18px);
+  display: inline-block;
+  border-radius: 3px;
+  background-color: c(mustard);
+  padding: .75em 2em;
+  text-decoration: none;
+  font-weight: 700;
+}

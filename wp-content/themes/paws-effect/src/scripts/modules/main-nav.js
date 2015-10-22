@@ -42,28 +42,3 @@ function initMainNav(options) {
 
   _init();
 }
-
-// var exports = module.exports = {};
-// var $ = jQuery;
-// var _settings;
-
-// var defaults = {
-//   containerSelector: '.js-nav',
-//   triggerSelector: '.js-nav__trigger'
-// };
-
-// exports.init = function(options) {
-//   _settings = $.extend(defaults, options);
-
-//   $container = $(_settings.containerSelector);
-//   $trigger = $container.find(_settings.triggerSelector);
-//   _bind();
-// };
-
-// var _bind = function() {
-//   $trigger.on('click', _clickHandler);
-// };
-
-// var _clickHandler = function() {
-
-// }

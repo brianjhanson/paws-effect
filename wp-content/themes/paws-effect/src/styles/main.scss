@@ -3,6 +3,8 @@
 @import "../../bower_components/breakpoint-sass/stylesheets/breakpoint";
 
 @import "vendor/normalize";
+@import "vendor/flickity";
+
 
 @import "global/helpers";
 @import "global/type";
@@ -13,5 +15,6 @@
 @import "global/ir";
 @import "global/on-event";
 
+@import "vendor-cust/*";
 @import "layouts/*";
 @import "objects/*";

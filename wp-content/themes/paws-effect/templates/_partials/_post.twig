@@ -1,0 +1,22 @@
+{% set excerpt = excerpt is defined ? excerpt : false %}
+<article class="post post--{{ post.post_type }}">
+  <header class="post__header">
+    <h1 class="post-title">
+      <a href="{{ post.link }}">{{ post.post_title }}</a>
+    </h1>
+  </header>
+  <div class="post__body">
+    {% if excerpt %}
+    <div class="lead">
+      {{ post.get_preview(80, false, '') }}
+    </div>
+    {% else %}
+      {{ post.content }}
+    {% endif %}
+  </div>
+  <footer class="post__footer">
+    {% if excerpt %}
+      <a href="{{ post.link }}" class="text-btn text-btn--lead">Read more</a>
+    {% endif %}
+  </footer>
+</article>

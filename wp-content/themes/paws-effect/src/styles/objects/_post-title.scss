@@ -1,0 +1,12 @@
+.post-title {
+  @include rem(font-size, 28px);
+  margin: 0;
+
+  @include mq(small) {
+    @include rem(font-size, 36px);
+  }
+
+  @include mq(medium) {
+    @include rem(font-size, 44px);
+  }
+}

@@ -16,3 +16,9 @@
   @include rem(font-size, 14px);
   line-height: 1.6;
 }
+
+.tease__cta {
+  @include rem(margin-top, 10px);
+  display: block;
+  font-weight: 700;
+}

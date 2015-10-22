@@ -1,0 +1,18 @@
+.flickity-page-dots {
+  bottom: 0;
+}
+
+.flickity-prev-next-button.previous { 
+  left: 10px; 
+
+  @include mq(small) {
+    left: -60px;
+  }
+}
+.flickity-prev-next-button.next { 
+  right: 10px; 
+
+  @include mq(small) {
+    right: -60px;
+  }
+}

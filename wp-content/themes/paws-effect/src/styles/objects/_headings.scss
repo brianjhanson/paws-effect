@@ -7,4 +7,16 @@
   // @include h-size(giga);
   @include rem(font-size, 36px);
   line-height: 1.1;
+
+  @include mq(small) {
+    @include rem(font-size, 64px);
+  }
+
+  @include mq(medium) {
+    @include rem(font-size, 96px);
+  }
+
+  @include mq(large) {
+    @include rem(font-size, 120px);
+  }
 }

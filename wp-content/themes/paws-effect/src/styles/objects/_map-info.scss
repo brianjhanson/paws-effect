@@ -1,0 +1,13 @@
+.map-info {
+  padding: .5rem;
+}
+
+.map-info__title {
+  @include rem(font-size, 18px);
+  @include rem(margin-bottom, 10px);
+}
+
+.map-info__addr {
+  font-size: 1rem;
+  line-height: 1.5;
+}

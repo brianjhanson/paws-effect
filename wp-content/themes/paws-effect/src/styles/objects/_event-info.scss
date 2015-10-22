@@ -1,0 +1,9 @@
+.event-info__title {
+  @include rem(font-size, 22px);
+}
+
+.event-info__date {
+  @include rem(margin-top, 5px);
+  font-size: 1rem;
+  font-weight: 400;
+}

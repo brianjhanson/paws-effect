@@ -1,18 +1,7 @@
 .site-header {
-  @include row;
-  padding-top: 1em;
-
-  @include mq(small) {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    width: 100%;
-  }
-
-  .admin-bar & {
-    top: 32px;
-  }
+  @include container;
+  background-color: c(mustard);
+  padding: 1.5em 6% 0;
 }
 
 .site-header__logo {
@@ -27,6 +16,13 @@
   @include rem(margin, 1em 0);
   
   @include mq(small) {
-    @include span(12 at 5);
+    @include span(5 at 5);
+  }
+}
+
+.site-header__trigger {
+
+  @include mq(small) {
+    display: none;
   }
 }

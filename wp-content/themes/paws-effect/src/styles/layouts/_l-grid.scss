@@ -1,3 +1,7 @@
 .l-grid {
   @include container;
 }
+
+.l-grid--site {
+  padding: 0 6%;
+}

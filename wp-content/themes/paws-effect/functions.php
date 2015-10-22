@@ -12,17 +12,18 @@ Timber::$dirname = array('templates', 'views');
 class StarterSite extends TimberSite {
 
   protected $pe_includes = [
-    'lib/scripts.php'
+    'lib/scripts.php',
+    'lib/post-types.php'
   ];
   
   function __construct() {
     $this->get_files();
+    $this->add_options_page();
     add_theme_support( 'post-formats' );
     add_theme_support( 'post-thumbnails' );
     add_theme_support( 'menus' );
     add_filter( 'timber_context', array( $this, 'add_to_context' ) );
     add_filter( 'get_twig', array( $this, 'add_to_twig' ) );
-    add_action( 'init', array( $this, 'register_post_types' ) );
     add_action( 'init', array( $this, 'register_taxonomies' ) );
     parent::__construct();
   }
@@ -35,10 +36,6 @@ class StarterSite extends TimberSite {
       require_once $filepath;
     }
     unset($file, $filepath);
-  }
-
-  function register_post_types() {
-    //this is where you can register custom post types
   }
 
   function register_taxonomies() {
@@ -59,6 +56,22 @@ class StarterSite extends TimberSite {
     $twig->addExtension( new Twig_Extension_StringLoader() );
     $twig->addFilter( 'myfoo', new Twig_Filter_Function( 'myfoo' ) );
     return $twig;
+  }
+
+  function add_options_page() {
+    if( function_exists('acf_add_options_page') ) {
+      acf_add_options_page(array(
+        'page_title' => 'Globals',
+        'menu_title' => 'Globals',
+        'menu_slug' => 'globals',
+      ));
+
+      acf_add_options_sub_page(array(
+        'page_title' => 'Contact Info',
+        'menu_title' => 'Contact Info',
+        'parent_slug' => 'globals'
+      )); 
+    }
   }
 
 }

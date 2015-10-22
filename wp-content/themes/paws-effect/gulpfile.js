@@ -24,7 +24,7 @@ var paths = {
   templateSrc: '.',
 
   imageSrc: 'src/images/',
-  imageDist: 'images/'
+  imageDist: 'dist/images/'
 };
 
 
@@ -112,7 +112,7 @@ gulp.task('scripts', ['lint'], function() {
   })
   .pipe(source('bundle.js'))
   .pipe(buffer())
-  .pipe($.uglify())
+  // .pipe($.uglify())
   .pipe(gulp.dest(paths.scriptDist))
   .pipe(browserSync.reload({ stream: true, once: true }));
 });

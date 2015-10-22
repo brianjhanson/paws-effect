@@ -1,7 +1,31 @@
+
 .section {
   @include rem(padding, 40px 0);
+
+  @include mq(small) {
+    @include rem(padding, 80px 0);
+  }
 }
 
 .section__body {
   @include rem(margin-top, 40px);
+}
+
+.section--yellow {
+  background-color: c(mustard);
+}
+
+.section--hero {
+  border-bottom: 10px solid c(lightning);
+}
+
+.section__cta {
+  @include rem(margin-top, 40px);
+  text-align: center;
+}
+
+.section__sign-up {
+  width: span(5);
+  margin: 0 auto;
+  text-align: center;
 }

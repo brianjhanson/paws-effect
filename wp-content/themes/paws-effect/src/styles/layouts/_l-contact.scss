@@ -1,0 +1,25 @@
+.l-contact {
+  background-color: #F3F8FC;
+
+  @include mq(medium) {
+    padding-left: 6%;
+    display: flex;
+  }
+}
+
+.l-contact__info {
+  @include rem(padding, 40px 6% 60px);
+
+  @include mq(medium) {
+    @include span(4);
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+.l-contact__map {
+  background-size: cover;
+  background-position: 50% 50%;
+  flex-grow: 1;
+  min-height: 400px;
+}
