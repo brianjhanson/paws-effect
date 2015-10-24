@@ -17,3 +17,13 @@
     margin-left: 1em;
   }
 }
+
+.nav--center {
+  text-align: center;
+}
+
+.nav--no-margin {
+  .nav__item {
+    margin: 0;
+  }
+}

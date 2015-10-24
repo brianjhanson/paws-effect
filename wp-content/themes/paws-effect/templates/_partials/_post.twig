@@ -15,6 +15,10 @@
     {% endif %}
   </div>
   <footer class="post__footer">
+    {% if post.get_field('post_cta_link') | length %}
+      {% include '_partials/_post-cta.twig' %}
+    {% endif %}
+
     {% if excerpt %}
       <a href="{{ post.link }}" class="text-btn text-btn--lead">Read more</a>
     {% endif %}

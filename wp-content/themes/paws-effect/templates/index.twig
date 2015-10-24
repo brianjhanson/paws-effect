@@ -1,9 +1,20 @@
 {% extends "base.twig" %}
 
 {% block content %}
-	<h2>{{foo}}</h2>
-	<p>{{qux}}</p>
-	{% for post in posts %}
-		{% include ['tease-'~post.post_type~'.twig', 'tease.twig'] %}
-	{% endfor %}
+  <div class="l-single">
+    <div class="l-single__content">
+      {% for post in posts %}
+        {% include '_partials/_post.twig' %}
+      {% endfor %}
+    </div>
+    <div class="l-single__sidebar">
+      <h3 class="section-sub-title">Latest from Facebook</h3>
+      {{ "[custom-facebook-feed]" | shortcodes }}
+    </div>
+  </div>
+
+  <div class="bg-blue">
+    <div class="l-grid l-grid--site">
+      {% include '_partials/_pagination.twig' %}
+  </div>
 {% endblock %}

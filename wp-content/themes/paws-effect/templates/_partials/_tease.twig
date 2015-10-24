@@ -1,4 +1,4 @@
-{% set thumbSrc = post.get_thumbnail ? post.thumbnail.src : 'http://placehold.it/600x400' %}
+{% set thumbSrc = post.get_thumbnail | default('http://placehold.it/600x400') %}
 <article class="tease">
   <figure class="tease__thumb">
     <div class="thumbnail">
@@ -9,7 +9,7 @@
     <a href="{{ post.permalink }}">{{ post.post_title }}</a>
   </h1>
   <div class="tease__body">
-    {{ post.post_excerpt }}
+    {{ post.get_preview(80, false, '') }}
   </div>
   <a href="{{ post.permalink }}" class="tease__cta">Learn More</a>
 </article>

@@ -1,0 +1,49 @@
+.pagination {
+  @include container;
+  padding: .5em 0;
+}
+
+.pagination__link {
+  padding: .5em 1.5em;
+  background-color: tint(c(havelock), 80%);
+  color: #fff;
+  text-decoration: none;
+  border-radius: 3px;
+
+  @include on-event {
+    background-color: tint(c(havelock), 95%);
+  }
+}
+
+.pagination__link--prev {
+  @include mq(large) {
+    @include span(2 at 1 of 12);
+  }
+}
+
+.pagination__link--next {
+  text-align: right;
+
+  @include mq(large) {
+    @include span(2 at 11 of 12);
+  }
+}
+
+.pagination__pages {
+
+  @include mq(large) {
+    @include span(8 at 3 of 12);
+  }
+
+  a {
+    display: inline-block;
+    padding: .5em 1em;
+  }
+
+  .current {
+    background-color: tint(c(havelock), 80%);
+    padding: .5em 1em;
+    color: #fff;
+    border-radius: 3px;
+  }
+}

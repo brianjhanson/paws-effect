@@ -1,0 +1,18 @@
+  <div class="pagination">
+    <a href="{{ pagination.prev.link }}" class="pagination__link pagination__link--prev {{ pagination.prev.link | length ? '' : 'is-inactive' }}">Prev</a>
+    <div class="pagination__pages">
+      <ul class="nav nav--center nav--no-margin">
+        {% for page in pagination.pages %}
+          <li class="nav__item">
+            {% if page.link %}
+              <a href="{{ page.link }}" class="{{ page.class }}">{{page.title}}</a>
+            {% else %}
+              <span class="{{ page.class }}">{{ page.title }}</span>
+            {% endif %}
+          </li>
+        {% endfor %}
+      </ul>
+    </div>
+    <a href="{{ pagination.next.link }}" class="pagination__link pagination__link--next {{ pagination.next.link | length ? '' : 'is-inactive' }}">Next</a>
+  </div>
+</div>
