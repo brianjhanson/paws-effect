@@ -1,6 +1,6 @@
 # WordPress MySQL database migration
 #
-# Generated: Saturday 24. October 2015 16:57 UTC
+# Generated: Saturday 24. October 2015 17:34 UTC
 # Hostname: localhost
 # Database: `pawseffect`
 # --------------------------------------------------------
@@ -266,7 +266,7 @@ CREATE TABLE `wp_options` (
   `autoload` varchar(20) COLLATE utf8_unicode_ci NOT NULL DEFAULT 'yes',
   PRIMARY KEY (`option_id`),
   UNIQUE KEY `option_name` (`option_name`)
-) ENGINE=InnoDB AUTO_INCREMENT=596 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=600 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 
 #
@@ -2063,7 +2063,7 @@ INSERT INTO `wp_postmeta` ( `meta_id`, `post_id`, `meta_key`, `meta_value`) VALU
 (1659, 10, 'post_cta_link', ''),
 (1660, 10, '_post_cta_link', 'field_562ad4141f43b'),
 (1661, 453, '_edit_lock', '1445650529:1'),
-(1662, 455, '_edit_lock', '1445705836:1') ;
+(1662, 455, '_edit_lock', '1445707931:1') ;
 
 #
 # End of data contents of table `wp_postmeta`
