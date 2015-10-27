@@ -679,6 +679,8 @@ function cff_style_page() {
         'cff_show_author'           => true,
         'cff_class'                 => '',
         'cff_open_links'            => true,
+        'cff_cron'                  => 'unset',
+
         //New
         'cff_custom_css'            => '',
         'cff_custom_js'             => '',
@@ -875,6 +877,8 @@ function cff_style_page() {
     $cff_font_source = $options[ 'cff_font_source' ];
     $cff_preserve_settings   = 'cff_preserve_settings';
     $cff_preserve_settings_val = get_option( $cff_preserve_settings );
+    $cff_cron = $options[ 'cff_cron' ];
+
 
     //Page Header
     $cff_show_header = $options[ 'cff_show_header' ];
@@ -1219,6 +1223,8 @@ function cff_style_page() {
             (isset($_POST[ 'cff_show_credit' ])) ? $cff_show_credit = $_POST[ 'cff_show_credit' ] : $cff_show_credit = '';
             (isset($_POST[ 'cff_font_source' ])) ? $cff_font_source = $_POST[ 'cff_font_source' ] : $cff_font_source = '';
             (isset($_POST[ $cff_preserve_settings ])) ? $cff_preserve_settings_val = $_POST[ 'cff_preserve_settings' ] : $cff_preserve_settings_val = '';
+            if (isset($_POST[ 'cff_cron' ])) $cff_cron = $_POST[ 'cff_cron' ];
+
 
             //Meta
             $options[ 'cff_icon_style' ] = $cff_icon_style;
@@ -1254,6 +1260,28 @@ function cff_style_page() {
             $options[ 'cff_show_credit' ] = $cff_show_credit;
             $options[ 'cff_font_source' ] = $cff_font_source;
             update_option( $cff_preserve_settings, $cff_preserve_settings_val );
+
+            $options[ 'cff_cron' ] = $cff_cron;
+
+
+            if( $cff_cron == 'no' ) wp_clear_scheduled_hook('cff_cron_job');
+
+            //Run cron when Misc settings are saved
+            if( $cff_cron == 'yes' ){
+                //Clear the existing cron event
+                wp_clear_scheduled_hook('cff_cron_job');
+
+                $cff_cache_time = get_option( 'cff_cache_time' );
+                $cff_cache_time_unit = get_option( 'cff_cache_time_unit' );
+
+                //Set the event schedule based on what the caching time is set to
+                $cff_cron_schedule = 'hourly';
+                if( $cff_cache_time_unit == 'hours' && $cff_cache_time > 5 ) $cff_cron_schedule = 'twicedaily';
+                if( $cff_cache_time_unit == 'days' ) $cff_cron_schedule = 'daily';
+
+                wp_schedule_event(time(), $cff_cron_schedule, 'cff_cron_job');
+            }
+
         }
         //Update the Custom Text / Translate options
         if( isset($_POST[ $style_custom_text_hidden_field_name ]) && $_POST[ $style_custom_text_hidden_field_name ] == 'Y' ) {
@@ -2664,6 +2692,22 @@ function cff_style_page() {
                             </select>
                         </td>
                     </tr>
+
+                    <tr>
+                        <th class="bump-left">
+                            <label for="cff_cron" class="bump-left"><?php _e("Force cache to clear on interval"); ?></label>
+                        </th>
+                        <td>
+                            <select name="cff_cron">
+                                <option value="unset" <?php if($cff_cron == "unset") echo 'selected="selected"' ?> ><?php _e(' - '); ?></option>
+                                <option value="yes" <?php if($cff_cron == "yes") echo 'selected="selected"' ?> ><?php _e('Yes'); ?></option>
+                                <option value="no" <?php if($cff_cron == "no") echo 'selected="selected"' ?> ><?php _e('No'); ?></option>
+                            </select>
+
+                            <a class="cff-tooltip-link" href="JavaScript:void(0);"><?php _e('What does this mean?'); ?></a>
+                            <p class="cff-tooltip cff-more-info"><?php _e("If you're experiencing an issue with the plugin not auto-updating then you can set this to 'Yes' to run a scheduled event behind the scenes which forces the plugin cache to clear on a regular basis and retrieve new data from Facebook."); ?></p>
+                        </td>
+                    </tr>
                 </tbody>
             </table>
 
@@ -2855,4 +2899,29 @@ function cff_add_settings_link( $links, $file ) {
  
     return $links;
 }
+
+
+//Cron job to clear transients
+add_action('cff_cron_job', 'cff_cron_clear_cache');
+function cff_cron_clear_cache() {
+    //Delete all transients
+    global $wpdb;
+    $table_name = $wpdb->prefix . "options";
+    $wpdb->query( "
+        DELETE
+        FROM $table_name
+        WHERE `option_name` LIKE ('%\_transient\_cff\_%')
+        " );
+    $wpdb->query( "
+        DELETE
+        FROM $table_name
+        WHERE `option_name` LIKE ('%\_transient\_cff\_tle\_%')
+        " );
+    $wpdb->query( "
+        DELETE
+        FROM $table_name
+        WHERE `option_name` LIKE ('%\_transient\_timeout\_cff\_%')
+        " );
+}
+
 ?>
