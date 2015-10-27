@@ -85,44 +85,7 @@
     </div>
 
     <div class="l-front-page__contact">
-      <section class="l-contact">
-        <div class="l-contact__info">
-          <div class="l-contact-info">
-            <div class="l-contact-info__title">
-              <h1 class="section-title">Get in Touch</h1>
-            </div>
-            <div class="l-contact-info__body">
-              <ul class="contact-list">
-                <li class="contact-list__item">
-                  <div class="contact-item">
-                    <div class="contact-item__title">Phone</div>
-                    <div class="contact-item__number">
-                      <tel>{{ global.main_phone }}</tel>
-                    </div>
-                  </div>
-                </li>
-                <li class="contact-list__item">
-                  <div class="contact-item">
-                    <div class="contact-item__title">Email</div>
-                    <div class="contact-item__number">
-                      <a href="mailto:{{ globals.main_email }}">{{ global.main_email }}</a></div>
-                  </div>
-                </li>
-                <li class="contact-list__item">
-                  <div class="contact-item">
-                    <div class="contact-item__title">Mail</div>
-                    <div class="contact-item__number">
-                      {{ global.mailing_address | replace({'/': '<br/>'}) }}
-                    </div>
-                  </div>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-        <div class="l-contact__map js-map" data-lat="{{ global.map_address.lat }}" data-lng="{{ global.map_address.lng }}" data-addr="{{ global.map_address.address }}">
-        </div>
-      </div>
-    </section>
+      {% include '_partials/_contact.twig' %}
+    </div>
   </div>
 {% endblock %}

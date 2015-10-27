@@ -8,7 +8,8 @@ var router = require('mini-router');
 APP.init = function() {
   // init our router
   router({
-    '/$': APP.routeHome
+    '/$': APP.routeHome,
+    '/contact/?$': APP.routeContact
   });
   mainNav();
 };
@@ -16,6 +17,10 @@ APP.init = function() {
 APP.routeHome = function() {
   // console.log(peSlider);
   peSlider();
+  peMaps();
+};
+
+APP.routeContact = function() {
   peMaps();
 };
 

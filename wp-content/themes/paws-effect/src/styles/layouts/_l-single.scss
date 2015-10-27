@@ -42,3 +42,20 @@
     padding-right: span(1);
   }
 }
+
+.l-single--index {
+  .l-single__content {
+    @include mq(large) {
+      width: span(5);
+      flex-grow: 1;
+    }
+  }
+
+  .l-single__sidebar {
+    @include mq(large) {
+      width: span(3);
+      padding-left: gutter();
+      flex-grow: 1;
+    }
+  }
+}

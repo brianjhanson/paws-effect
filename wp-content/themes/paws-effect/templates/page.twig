@@ -5,12 +5,10 @@
 			<div class="l-single__content">
 				<article class="post post--featured post--{{ post.post_type }}">
 					<div class="post__hero">
-						<img src="{{ post.thumbnail.src|resize(800, 600) }}" />
+						<img src="{{ post.thumbnail.src|resize(1200, 800) }}" />
 					</div>
 					<header class="post__header">
-					  <h1 class="post-title">
-					    <a href="{{ post.link }}">{{ post.post_title }}</a>
-					  </h1>
+					  <h1 class="post-title">{{ post.post_title }}</h1>
 					</header>
 					<div class="post__body">
 					  <div class="rich-text">
