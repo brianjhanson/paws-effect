@@ -1,0 +1,11 @@
+<div class="l-grid l-grid--site">
+  <div class="l-block-grid l-block-grid--middle">
+    {% for image in block.images %}
+      <div class="l-block-grid__item">
+        <figure class="image">
+          <img src="{{ TimberImage(image).src }}" class="image__image"/>
+        </figure>
+      </div>
+    {% endfor %}
+  </div>
+</div>

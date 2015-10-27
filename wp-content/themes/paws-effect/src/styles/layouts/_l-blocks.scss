@@ -1,0 +1,51 @@
+.l-blocks {
+  @include container;
+  @include rem(padding, 60px 0);
+}
+
+.l-blocks__title {
+  @include rem(font-size, 48px);
+  @include rem(margin-bottom, 30px);
+  padding-left: span(1);
+}
+
+.l-blocks__block {
+  display: inline-block;
+
+  &:first-child {
+    margin-right: gutter();
+    padding-left: 6%;
+  }
+
+  &:last-child {
+    padding-right: 6%;
+  }
+}
+
+.l-blocks__block--half {
+  @include mq(medium) {
+    width: span(4 of 8);
+  }
+}
+
+.l-blocks__block--third {
+  @include mq(medium) {
+    width: span(3 of 9);
+  }
+}
+
+//---------------------------------------------------------------
+// Heading
+//---------------------------------------------------------------
+
+.l-blocks--top {
+  .l-blocks__block {
+    vertical-align: top; 
+  }
+}
+
+.l-blocks--middle {
+  .l-blocks__block {
+    vertical-align: middle;
+  }
+}

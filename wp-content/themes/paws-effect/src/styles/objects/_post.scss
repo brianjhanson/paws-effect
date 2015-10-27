@@ -27,3 +27,32 @@
   @include rem(margin-bottom, 60px);
   border-bottom: 1px solid #ccc;
 }
+
+.post--featured {
+  @include rem(margin-bottom, 80px);
+
+  .post__header {
+    @include push(1);
+    margin-right: span(1);
+  }
+
+  .post__body {
+    @include push(1);
+    margin-right: span(1);
+  }
+
+  .post__hero {
+    @include rem(margin-bottom, 40px);
+    padding-top: 56.5%;
+    overflow: hidden;
+    position: relative;
+
+    > img {
+      width: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+    }
+  }
+}

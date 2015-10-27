@@ -1,0 +1,14 @@
+.widget {
+  @include rem(margin-bottom, 40px);
+  max-width: 300px;
+}
+
+.widget__title {
+  @include rem(font-size, 18px);
+  @include rem(margin-bottom, 10px);
+  border-bottom: 1px solid c(havelock);
+}
+
+.widget__body {
+  @include rem(font-size, 15px);
+}

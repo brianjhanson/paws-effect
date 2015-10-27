@@ -1,0 +1,52 @@
+<hr>
+  <div class="l-blocks">
+    {% if post.friends_allies_title | length %}
+      <h2 class="l-blocks__title">{{ post.friends_allies_title }}</h2>
+    {% endif %}
+    
+    <div class="l-single l-single--full">
+      <div class="l-single__content">
+        {% for section in post.get_field('supporter_section') %}
+          {% if section.section_title | length %}
+            <h3 class="supporter-title">{{ section.section_title }}</h3>
+          {% endif %}
+          
+          <div class="l-block-grid l-block-grid--{{ section.section_layout }}">
+            {% for supporter in section.supporters %}
+            <div class="l-block-grid__item">
+              <div class="supporter">
+                <h3 class="supporter__name">{{ supporter.name }}</h3>
+                <div class="supporter__body">
+                  {% if supporter.links | length %}
+                  <ul class="nav nav--separator">
+                    {% for link in supporter.links %}
+                      <li class="nav__item"><a href="{{ link.link }}">{{ link.link_name }}</a></li>
+                    {% endfor %}
+                  </ul>
+                  {% endif %}
+                </div>
+              </div>
+            </div>
+            {% endfor %}
+          </div>
+        {% endfor %}
+      </div>
+      <div class="l-single__sidebar l-single__sidebar--border">
+        <div class="widget">
+          <h3 class="supporter-title">{{ post.get_field('section_title') }}</h3>
+          {% for participant in post.get_field('participants') %}
+          <div class="widget__body">
+            <div class="supporter">
+              <h3 class="supporter__name">
+                <a href="{{ participant.participant_link }}">{{ participant.participant_name }}</a>
+              </h3>
+              <div class="supporter__body">
+                {{ participant.participant_address }}
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>

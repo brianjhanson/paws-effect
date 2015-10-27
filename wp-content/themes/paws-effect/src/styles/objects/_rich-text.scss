@@ -1,0 +1,27 @@
+.rich-text {
+
+  h1, 
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p,
+  ul,
+  ol,
+  blockquote {
+    margin: 0;
+
+    & + * {
+      margin-top: 1em;
+    }
+  }
+
+  blockquote {
+    font-style: italic;
+    font-size: 1.25em;
+    border-left: 5px solid c(havelock);
+    padding-left: 1.5rem;
+    color: tint(c(text), 60);
+  }
+}

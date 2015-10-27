@@ -1,15 +1,19 @@
 {% extends "base.twig" %}
 
 {% block content %}
-  <div class="l-single">
+  <div class="l-single l-single--full">
     <div class="l-single__content">
-      {% for post in posts %}
-        {% include '_partials/_post.twig' %}
-      {% endfor %}
+      <div class="l-page">
+        {% for post in posts %}
+          {% include '_partials/_post.twig' %}
+        {% endfor %}
+      </div>
     </div>
-    <div class="l-single__sidebar">
-      <h3 class="section-sub-title">Latest from Facebook</h3>
-      {{ "[custom-facebook-feed]" | shortcodes }}
+    <div class="l-single__sidebar bg-light-blue">
+      <div class="l-page">
+        <h3 class="section-sub-title">Latest from Facebook</h3>
+        {{ "[custom-facebook-feed]" | shortcodes }}
+      </div>
     </div>
   </div>
 

@@ -1,0 +1,18 @@
+{% for section in post.get_field('sidebar_sections') %}
+<div class="widget">
+  <h3 class="widget__title">{{ section.section_title }}</h3>
+  <div class="widget__body">
+    {% if section.section_type == 'list' %}
+      <ul class="sidebar-list">
+      {% for item in section.section_list %}
+        <li>{{ item.list_item }}</li>
+      {% endfor %}
+      </ul>
+    {% else %}
+      <div class="rich-text">
+        {{ section.section_content }}
+      </div>
+    {% endif %}
+  </div>
+</div>
+{% endfor %}

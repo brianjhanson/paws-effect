@@ -1,0 +1,9 @@
+.sidebar-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+
+  > li {
+    @include rem(margin-bottom, 10px);
+  }
+}
