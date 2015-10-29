@@ -32,12 +32,12 @@
   @include rem(margin-bottom, 80px);
 
   .post__header {
-    @include push(1);
+    margin-left: span(1 of 6);
     margin-right: span(1);
   }
 
   .post__body {
-    @include push(1);
+    margin-left: span(1 of 6);
     margin-right: span(1);
   }
 

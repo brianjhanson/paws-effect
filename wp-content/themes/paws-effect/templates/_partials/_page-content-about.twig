@@ -1,9 +1,14 @@
 <hr>
-  <div class="l-blocks">
-    {% if post.friends_allies_title | length %}
-      <h2 class="l-blocks__title">{{ post.friends_allies_title }}</h2>
-    {% endif %}
-    
+<div class="section">
+  {% if post.friends_allies_title | length %}
+    <div class="l-grid l-grid--site">
+      <div class="section__title">
+        <h2 class="section-title">{{ post.friends_allies_title }}</h2>
+      </div>
+    </div>
+  {% endif %}
+
+  <div class="section__body">
     <div class="l-single l-single--full">
       <div class="l-single__content">
         {% for section in post.get_field('supporter_section') %}
@@ -50,3 +55,4 @@
       </div>
     </div>
   </div>
+</div>
