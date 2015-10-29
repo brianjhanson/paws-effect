@@ -1,0 +1,27 @@
+{% extends "page.twig" %}
+
+{% block content %}
+  <div class="l-blocks l-blocks--middle">
+    <div class="l-blocks__block l-blocks__block--half">
+      <div class="section">
+        <div class="section__title">
+          <h1 class="section-title">Contact Us</h1>
+        </div>
+        <div class="section__body">
+          <div class="lead">
+            <p>Curabitur blandit tempus porttitor. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Nulla vitae elit libero, a pharetra augue. Etiam porta sem malesuada magna mollis euismod. Nulla vitae elit libero, a pharetra augue.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="l-blocks__block l-blocks__block--half bg-light-blue">
+      <div class="section">
+        <div class="rich-text">
+          {{ post.content }}
+        </div>
+      </div>
+    </div>
+  </div>
+
+  {% include ['_partials/_page-' ~ post.post_name ~ '.twig'] ignore missing %}
+{% endblock %}

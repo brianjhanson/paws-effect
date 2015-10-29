@@ -1,6 +1,7 @@
 .l-blocks {
-  @include container;
-  @include rem(padding, 60px 0);
+  @include mq(medium) {
+    display: flex;
+  }
 }
 
 .l-blocks__title {
@@ -10,21 +11,21 @@
 }
 
 .l-blocks__block {
-  display: inline-block;
 
   &:first-child {
-    margin-right: gutter();
+    padding-right: gutter();
     padding-left: 6%;
   }
 
   &:last-child {
+    padding-left: gutter();
     padding-right: 6%;
   }
 }
 
 .l-blocks__block--half {
   @include mq(medium) {
-    width: span(4 of 8);
+    width: 50%;
   }
 }
 

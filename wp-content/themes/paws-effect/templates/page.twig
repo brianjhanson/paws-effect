@@ -1,29 +1,30 @@
 {% extends "base.twig" %}
 
 {% block content %}
-		<div class="l-single">
-			<div class="l-single__content">
-				<article class="post post--featured post--{{ post.post_type }}">
-					<div class="post__hero">
-						<img src="{{ post.thumbnail.src|resize(1200, 800) }}" />
-					</div>
-					<header class="post__header">
-					  <h1 class="post-title">{{ post.post_title }}</h1>
-					</header>
-					<div class="post__body">
-					  <div class="rich-text">
-				      {{ post.content }}
-					  </div>
-				  </div>
-				</article>
-			</div>
-			<aside class="l-single__sidebar bg-light-blue">
-				<div class="l-page">
-					{% include ['_partials/_sidebar-' ~ post.post_name ~ '.twig', '_partials/_sidebar.twig'] ignore missing %}
+	<div class="l-single">
+		<div class="l-single__content">
+			<article class="post post--featured post--{{ post.post_type }}">
+				{% if post.thumbnail | length %}
+				<div class="post__hero">
+					<img src="{{ post.thumbnail.src|resize(1200, 800) }}" />
 				</div>
-			</aside>
+				{% endif %}
+				<header class="post__header">
+				  <h1 class="post-title">{{ post.post_title }}</h1>
+				</header>
+				<div class="post__body">
+				  <div class="rich-text">
+			      {{ post.content }}
+				  </div>
+			  </div>
+			</article>
 		</div>
-
-		{% include ['_partials/_page-' ~ post.post_name ~ '.twig'] ignore missing %}
+		<aside class="l-single__sidebar bg-light-blue">
+			<div class="l-page">
+				{% include ['_partials/_sidebar-' ~ post.post_name ~ '.twig', '_partials/_sidebar.twig'] ignore missing %}
+			</div>
+		</aside>
 	</div>
+
+	{% include ['_partials/_page-content-' ~ post.post_name ~ '.twig'] ignore missing %}
 {% endblock %}
