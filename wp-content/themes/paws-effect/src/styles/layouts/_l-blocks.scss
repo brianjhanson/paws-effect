@@ -12,6 +12,15 @@
 
 .l-blocks__block {
 
+}
+
+.l-blocks__block--full {
+  padding-left: 6%;
+  padding-right: 6%;
+}
+
+.l-blocks__block--half {
+
   &:first-child {
     padding-right: gutter();
     padding-left: 6%;
@@ -21,9 +30,7 @@
     padding-left: gutter();
     padding-right: 6%;
   }
-}
 
-.l-blocks__block--half {
   @include mq(medium) {
     width: 50%;
   }
@@ -33,6 +40,16 @@
   @include mq(medium) {
     width: span(3 of 9);
   }
+}
+
+.l-blocks__block--two-thirds {
+  @include mq(medium) {
+    width: span(6 of 9);
+  }
+}
+
+.l-blocks__block--centered {
+  margin: 0 auto;
 }
 
 //---------------------------------------------------------------

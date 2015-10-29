@@ -1,0 +1,66 @@
+{% extends "page.twig" %}
+
+{% block content %}
+  <div class="l-blocks">
+    <div class="l-blocks__block l-blocks__block--two-thirds l-blocks__block--centered">
+      <div class="section section--centered">
+        <div class="section__title">
+          <h1 class="section-title">Donate to Paws & Effect</h1>
+        </div>
+        <div class="section__body">
+          <div class="sub-head">
+            {{ post.content }}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="l-blocks l-blocks--middle">
+    <div class="l-blocks__block l-blocks__block--half">
+      <div class="section">
+        <div class="section__title">
+          <h1 class="section-title">Sponsor Paws & Effect</h1>
+        </div>
+        <div class="section__body">
+          <div class="rich-text">
+            <div class="lead">
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum illum omnis, qui pariatur eveniet quia sed, accusamus nobis magni a reiciendis repudiandae architecto, ipsam ullam voluptate, tempore in nam veritatis.</p>
+              <p><a href="#" class="btn">Sponsor Us</a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="l-blocks__block l-blocks__block--half">
+      <div class="section">
+        <div class="rich-text">
+          
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="l-blocks l-blocks--middle bg-light-blue">
+    <div class="l-blocks__block l-blocks__block--half">
+      <div class="section">
+        <div class="rich-text">
+          
+        </div>
+      </div>
+    </div>
+    <div class="l-blocks__block l-blocks__block--half">
+      <div class="section">
+        <div class="section__title">
+          <h1 class="section-title">Mail your Donation</h1>
+        </div>
+        <div class="section__body">
+          <div class="lead">
+            {{ global.mailing_address | replace({'/': '<br/>'}) }}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  {% include ['_partials/_page-' ~ post.post_name ~ '.twig'] ignore missing %}
+{% endblock %}
