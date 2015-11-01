@@ -1,0 +1,98 @@
+{% extends "base.twig" %}
+{% set event_passed = event_date | date('Ymd') < "now" | date('Ymd') %}
+
+{% block content %}
+  {% if post.thumbnail | length %}
+  <div class="page-header">
+    <img src="{{ post.thumbnail.src | resize(1200, 240) }}" class="page-header__img" /> 
+  </div>
+  {% endif %}
+
+  <div class="l-single l-single--full">
+    <div class="l-single__content">
+      <div class="l-page">
+        <article class="post post--{{ post.post_type }}">
+          <header class="post__header">
+            <h1 class="post-title">{{ post.post_title }}</h1>
+          </header>
+          <div class="post__body">
+            <div class="rich-text">
+              {{ post.content }}
+            </div>
+          </div>
+          <footer class="post__footer">
+            {% if post.get_field('post_cta_link') | length %}
+              {% include '_partials/_post-cta.twig' %}
+            {% endif %}
+
+            {% if excerpt %}
+              <a href="{{ post.link }}" class="text-btn text-btn--lead">Read more</a>
+            {% endif %}
+          </footer>
+        </article>
+      </div>
+    </div>
+    <aside class="l-single__sidebar">
+      <div class="l-page">
+        <div class="panel bg-light-blue">
+          <div class="widget">
+            <h3 class="widget__title">When</h3>
+            <div class="widget__body">
+              {% if event_passed %}
+                <p><div class="panel panel--small">This event has passed &amp; hasn't been scheduled for {{ event_date | date_modify("+1 year") | date('Y') }} yet.</div></p>
+              {% endif %}
+              <div class="l-event-info">
+                <div class="l-event-info__date">
+                  <div class="event-date">
+                    <div class="event-date__month">
+                      {{ event_date | date('M')}}
+                    </div>
+                    <div class="event-date__day">
+                      {{ event_date | date('j') }}
+                    </div>
+                  </div>
+                </div>
+                <div class="l-event-info__meta">
+                  <div>{{ event_date | date('l') }}</div>
+                  <div>{{ event_time }}</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="widget">
+            <h3 class="widget__title">Where</h3>
+            <div class="widget__body">
+              {% for row in post.get_field('event_address') %}
+                {% if row.address_title | length %}
+                  <h3>{{ row.address_title }}</h3>
+                {% endif %}
+
+                <address class="address">
+                  <div class="address__street">{{ row.street_address_1 }}</div>
+                  {% if row.street_address_2 | length %}
+                    <div class="address__street">{{ row.street_address_2 }}</div>
+                  {% endif %}
+                  <div class="address__locality">
+                    <span>{{ row.city }}</span>
+                    <span>{{ row.state }}</span>,
+                    <span>{{ row.zip_code }}</span>
+                  </div>
+                </address>
+
+                <a href="https://maps.google.com/?q={{ row | join(' ') }}" class="text-btn" target="_blank">Get Directions</a>
+              {% endfor %}
+            </div>
+          </div>
+        </div>
+
+        <div class="event-map">
+          <div class="js-map" data-lat="{{ map.lat }}" data-lng="{{ map.lng }}"></div>
+        </div>
+
+        {% if not event_passed and post.get_field('cta_link') | length %}
+          <a href="{{ post.get_field('cta_link') }}" class="btn btn--full btn--rsvp" target="_blank">{{ post.get_field('cta_text') }}</a>
+        {% endif %}
+      </div>
+    </aside>
+  </div>
+{% endblock %}

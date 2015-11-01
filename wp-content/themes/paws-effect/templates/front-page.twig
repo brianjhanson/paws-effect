@@ -57,16 +57,18 @@
           </div>
           <div class="section__body">
             <ul class="event-slider js-slider">
-              {% for i in 1..6 %}
+              {% for event in events %}
               <li class="event-slider__item js-slider__item">
                 <article class="event">
                   <div class="event__thumb">
-                    <img src="http://placehold.it/400x300" alt="">
+                    {% if event.thumbnail | length %}
+                      <img src="{{ event.thumbnail.src | resize(400, 300) }}" alt="{{ event.title }}" />
+                    {% endif %}
                   </div>
                   <div class="event__info">
                     <section class="event-info">
-                      <h1 class="event-info__title">Day of the Dead</h1>
-                      <h2 class="event-info__date">October 24, 2015</h2>
+                      <h1 class="event-info__title"><a href="{{ event.permalink }}">{{ event.title }}</a></h1>
+                      <h2 class="event-info__date">{{ event.get_field('event_date') | date('F j, Y') }}</h2>
                     </section>
                   </div>
                 </article>

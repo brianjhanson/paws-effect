@@ -9,7 +9,8 @@ APP.init = function() {
   // init our router
   router({
     '/$': APP.routeHome,
-    '/contact/?$': APP.routeContact
+    '/contact/?$': APP.routeContact,
+    '/events(.+)': APP.routeEvents
   });
   mainNav();
 };
@@ -17,12 +18,16 @@ APP.init = function() {
 APP.routeHome = function() {
   // console.log(peSlider);
   peSlider();
-  peMaps();
+  peMaps.trainingCenter();
 };
 
 APP.routeContact = function() {
-  peMaps();
+  peMaps.trainingCenter();
 };
+
+APP.routeEvents = function() {
+  peMaps.drawMap();
+}
 
 $(document).ready(function() {
   APP.init();

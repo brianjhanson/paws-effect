@@ -1,0 +1,479 @@
+{
+    "key": "group_56351f9287237",
+    "title": "Event",
+    "fields": [
+        {
+            "key": "field_56351f964e15c",
+            "label": "Event Date",
+            "name": "event_date",
+            "type": "date_picker",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "display_format": "m\/d\/Y",
+            "return_format": "Ymd",
+            "first_day": 0
+        },
+        {
+            "key": "field_56351fb24e15d",
+            "label": "Start Time",
+            "name": "start_time",
+            "type": "repeater",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": 50,
+                "class": "",
+                "id": ""
+            },
+            "min": "",
+            "max": 1,
+            "layout": "block",
+            "button_label": "Add Start Time",
+            "sub_fields": [
+                {
+                    "key": "field_56353078b15b5",
+                    "label": "Hour",
+                    "name": "hour",
+                    "type": "select",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": 33,
+                        "class": "",
+                        "id": ""
+                    },
+                    "choices": {
+                        "1": 1,
+                        "2": 2,
+                        "3": 3,
+                        "4": 4,
+                        "5": 5,
+                        "6": 6,
+                        "7": 7,
+                        "8": 8,
+                        "9": 9,
+                        "10": 10,
+                        "11": 11,
+                        "12": 12
+                    },
+                    "default_value": [],
+                    "allow_null": 0,
+                    "multiple": 0,
+                    "ui": 0,
+                    "ajax": 0,
+                    "placeholder": "",
+                    "disabled": 0,
+                    "readonly": 0
+                },
+                {
+                    "key": "field_5635308fb15b6",
+                    "label": "Minute",
+                    "name": "minute",
+                    "type": "select",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": 33,
+                        "class": "",
+                        "id": ""
+                    },
+                    "choices": {
+                        "00": "00",
+                        "15": 15,
+                        "30": 30,
+                        "45": 45
+                    },
+                    "default_value": [],
+                    "allow_null": 0,
+                    "multiple": 0,
+                    "ui": 0,
+                    "ajax": 0,
+                    "placeholder": "",
+                    "disabled": 0,
+                    "readonly": 0
+                },
+                {
+                    "key": "field_563530c1b15b7",
+                    "label": "Period",
+                    "name": "period",
+                    "type": "select",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": 33,
+                        "class": "",
+                        "id": ""
+                    },
+                    "choices": {
+                        "AM": "AM",
+                        "PM": "PM"
+                    },
+                    "default_value": [],
+                    "allow_null": 0,
+                    "multiple": 0,
+                    "ui": 0,
+                    "ajax": 0,
+                    "placeholder": "",
+                    "disabled": 0,
+                    "readonly": 0
+                }
+            ]
+        },
+        {
+            "key": "field_563530e6b15b8",
+            "label": "End Time",
+            "name": "end_time",
+            "type": "repeater",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": 50,
+                "class": "",
+                "id": ""
+            },
+            "min": "",
+            "max": 1,
+            "layout": "block",
+            "button_label": "Add End Time",
+            "sub_fields": [
+                {
+                    "key": "field_563530e6b15b9",
+                    "label": "Hour",
+                    "name": "hour",
+                    "type": "select",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": 33,
+                        "class": "",
+                        "id": ""
+                    },
+                    "choices": {
+                        "1": 1,
+                        "2": 2,
+                        "3": 3,
+                        "4": 4,
+                        "5": 5,
+                        "6": 6,
+                        "7": 7,
+                        "8": 8,
+                        "9": 9,
+                        "10": 10,
+                        "11": 11,
+                        "12": 12
+                    },
+                    "default_value": [],
+                    "allow_null": 0,
+                    "multiple": 0,
+                    "ui": 0,
+                    "ajax": 0,
+                    "placeholder": "",
+                    "disabled": 0,
+                    "readonly": 0
+                },
+                {
+                    "key": "field_563530e6b15ba",
+                    "label": "Minute",
+                    "name": "minute",
+                    "type": "select",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": 33,
+                        "class": "",
+                        "id": ""
+                    },
+                    "choices": {
+                        "00": "00",
+                        "15": 15,
+                        "30": 30,
+                        "45": 45
+                    },
+                    "default_value": [],
+                    "allow_null": 0,
+                    "multiple": 0,
+                    "ui": 0,
+                    "ajax": 0,
+                    "placeholder": "",
+                    "disabled": 0,
+                    "readonly": 0
+                },
+                {
+                    "key": "field_563530e6b15bb",
+                    "label": "Period",
+                    "name": "period",
+                    "type": "select",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": 33,
+                        "class": "",
+                        "id": ""
+                    },
+                    "choices": {
+                        "AM": "AM",
+                        "PM": "PM"
+                    },
+                    "default_value": [],
+                    "allow_null": 0,
+                    "multiple": 0,
+                    "ui": 0,
+                    "ajax": 0,
+                    "placeholder": "",
+                    "disabled": 0,
+                    "readonly": 0
+                }
+            ]
+        },
+        {
+            "key": "field_5635205c4e160",
+            "label": "Event Address",
+            "name": "event_address",
+            "type": "repeater",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "min": "",
+            "max": "",
+            "layout": "block",
+            "button_label": "Add Address",
+            "sub_fields": [
+                {
+                    "key": "field_56352cb34e166",
+                    "label": "Address Title",
+                    "name": "address_title",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": "",
+                    "readonly": 0,
+                    "disabled": 0
+                },
+                {
+                    "key": "field_56352bfc4e161",
+                    "label": "Street Address 1",
+                    "name": "street_address_1",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": "",
+                    "readonly": 0,
+                    "disabled": 0
+                },
+                {
+                    "key": "field_56352c2a4e162",
+                    "label": "Street Address 2",
+                    "name": "street_address_2",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": "",
+                    "readonly": 0,
+                    "disabled": 0
+                },
+                {
+                    "key": "field_56352c304e163",
+                    "label": "City",
+                    "name": "city",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": 40,
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": "",
+                    "readonly": 0,
+                    "disabled": 0
+                },
+                {
+                    "key": "field_56352c364e164",
+                    "label": "State",
+                    "name": "state",
+                    "type": "select",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": 20,
+                        "class": "",
+                        "id": ""
+                    },
+                    "choices": {
+                        "AL": "AL",
+                        "AK": "AK",
+                        "AZ": "AZ",
+                        "AR": "AR",
+                        "CA": "CA",
+                        "CO": "CO",
+                        "CT": "CT",
+                        "DE": "DE",
+                        "DC": "DC",
+                        "FL": "FL",
+                        "GA": "GA",
+                        "HI": "HI",
+                        "ID": "ID",
+                        "IL": "IL",
+                        "IN": "IN",
+                        "IA": "IA",
+                        "KS": "KS",
+                        "KY": "KY",
+                        "LA": "LA",
+                        "ME": "ME",
+                        "MD": "MD",
+                        "MA": "MA",
+                        "MI": "MI",
+                        "MN": "MN",
+                        "MS": "MS",
+                        "MO": "MO",
+                        "MT": "MT",
+                        "NE": "NE",
+                        "NV": "NV",
+                        "NH": "NH",
+                        "NJ": "NJ",
+                        "NM": "NM",
+                        "NY": "NY",
+                        "NC": "NC",
+                        "ND": "ND",
+                        "OH": "OH",
+                        "OK": "OK",
+                        "OR": "OR",
+                        "PA": "PA",
+                        "RI": "RI",
+                        "SC": "SC",
+                        "SD": "SD",
+                        "TN": "TN",
+                        "TX": "TX",
+                        "UT": "UT",
+                        "VT": "VT",
+                        "VA": "VA",
+                        "WA": "WA",
+                        "WV": "WV",
+                        "WI": "WI",
+                        "WY": "WY"
+                    },
+                    "default_value": [],
+                    "allow_null": 0,
+                    "multiple": 0,
+                    "ui": 0,
+                    "ajax": 0,
+                    "placeholder": "",
+                    "disabled": 0,
+                    "readonly": 0
+                },
+                {
+                    "key": "field_56352c9d4e165",
+                    "label": "Zip Code",
+                    "name": "zip_code",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": 40,
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": "",
+                    "readonly": 0,
+                    "disabled": 0
+                }
+            ]
+        },
+        {
+            "key": "field_56357ae3b6085",
+            "label": "Map",
+            "name": "map",
+            "type": "google_map",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "center_lat": "",
+            "center_lng": "",
+            "zoom": "",
+            "height": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "event"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": 1,
+    "description": "",
+    "modified": 1446351140
+}

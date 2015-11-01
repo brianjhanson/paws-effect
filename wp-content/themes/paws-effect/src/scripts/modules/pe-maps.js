@@ -1,30 +1,60 @@
 var GoogleMapsLoader = require('google-maps'); // only for common js environments 
 var $ = jQuery;
 
-module.exports = init;
+module.exports = {};
+module.exports.trainingCenter = trainingCenter;
+module.exports.drawMap = drawMap;
 GoogleMapsLoader.KEY = 'AIzaSyBtCWGnx-xFobcS7jiIbipV-0fTbjSyMgo';
 
-function init() {
-  var self = {};
+var self = {};
 
+function init() {
   self.settings = $.extend({
     mapSelector: '.js-map'
   });
   
   self.$map = $(self.settings.mapSelector);
-  self.lat = self.$map.attr('data-lat');
-  self.lng = self.$map.attr('data-lng');
-  self.addr = self.$map.attr('data-addr');
+}
+
+function drawMap() {
+  init();
+
+  var lat = self.$map.attr('data-lat');
+  var lng = self.$map.attr('data-lng');
 
   GoogleMapsLoader.load(function(google) {
+    var pos = new google.maps.LatLng(lat, lng);
+    console.log(pos);
     var map = new google.maps.Map(self.$map[0], {
-      center: new google.maps.LatLng(self.lat, self.lng),
-      scrollWheel: false,
+      center: pos,
+      scrollwheel: false,
       zoom: 17
     });
 
     var marker = new google.maps.Marker({
-      position: new google.maps.LatLng(self.lat, self.lng),
+      position: pos,
+      map: map
+    });
+  });
+}
+
+function trainingCenter() {
+  init();
+
+  var lat = self.$map.attr('data-lat');
+  var lng = self.$map.attr('data-lng');
+  var addr = self.$map.attr('data-addr');
+
+  GoogleMapsLoader.load(function(google) {
+    var pos = new google.maps.LatLng(lat, lng);
+    var map = new google.maps.Map(self.$map[0], {
+      center: pos,
+      scrollwheel: false,
+      zoom: 17
+    });
+
+    var marker = new google.maps.Marker({
+      position: pos,
       map: map,
       title: 'Paws & Effect'
     });
@@ -42,6 +72,6 @@ function init() {
     });
     
     infoWindow.open(map, marker);
-  });  
+  });
 }
 

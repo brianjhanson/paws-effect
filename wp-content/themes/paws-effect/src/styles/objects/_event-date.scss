@@ -1,0 +1,19 @@
+.event-date {
+  position: relative;
+  background-color: #fff;
+  text-align: center;
+  border-radius: 3px;
+  border: 1px solid tint(c(havelock), 40);
+}
+
+.event-date__month {
+  @include rem(font-size, 14px);
+  color: #fff;
+  border-radius: 3px 3px 0 0;
+  text-transform: uppercase;
+  background-color: c(havelock);
+}
+
+.event-date__day {
+  @include rem(font-size, 36px);
+}

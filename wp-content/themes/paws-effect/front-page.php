@@ -22,5 +22,13 @@ $context['services'] = Timber::get_posts(array(
   'posts_per_page' => 4
 ));
 
+$context['events'] = Timber::get_posts(array(
+  'post_type' => 'event',
+  'posts_per_page' => 10,
+  'order' => 'DESC',
+  'orderby' => 'meta_value_num',
+  'meta_key' => 'event_date'
+));
+
 $context['global'] = get_fields('options');
 Timber::render( array( 'front-page.twig', 'page.twig' ), $context );

@@ -1,6 +1,9 @@
 .widget {
-  @include rem(margin-bottom, 40px);
   max-width: 300px;
+
+  & + & {
+    @include rem(margin-top, 40px);
+  }
 }
 
 .widget__title {

@@ -1,0 +1,10 @@
+.panel {
+  @include rem(padding, 16px 16px 24px);
+  border-radius: 3px;
+}
+
+.panel--small {
+  @include rem(padding, 4px 8px);
+  @include rem(margin-bottom, 10px);
+  background-color: rgba(c(havelock), 0.2);
+}

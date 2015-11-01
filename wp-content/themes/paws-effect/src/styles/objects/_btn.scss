@@ -6,4 +6,17 @@
   padding: .75em 2em;
   text-decoration: none;
   font-weight: 700;
+  text-align: center;
+
+  @include on-event {
+    background-color: c(lightning);
+  }
+}
+
+.btn--full {
+  display: block;
+}
+
+.btn--rsvp {
+  @include rem(margin-top, 20px);
 }

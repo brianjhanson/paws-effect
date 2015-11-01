@@ -1,0 +1,13 @@
+.l-event-info {
+  display: flex;
+  align-items: center;
+}
+
+.l-event-info__date {
+  min-width: 70px;
+  margin-right: 1rem;
+}
+
+.l-event-info__meta {
+  @include rem(font-size, 18px);
+}
