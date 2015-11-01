@@ -63,3 +63,10 @@
     }
   }
 }
+
+.l-block-grid--gallery {
+  .l-block-grid__item {
+    @include gallery(2 of 8 .02);
+    @include rem(margin-bottom, 2px);
+  }
+}

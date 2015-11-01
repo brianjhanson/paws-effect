@@ -95,4 +95,19 @@
       </div>
     </aside>
   </div>
+  
+  <div class="l-page l-page--bottom">
+    <div class="l-grid l-grid--site">
+      <h2 class="section-title">Gallery</h2>
+      <div class="section__body">
+        <div class="l-block-grid l-block-grid--gallery">
+          {% for i in 1..12 %}
+            <div class="l-block-grid__item">
+              <img src="http://placehold.it/400x300" alt="">
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
 {% endblock %}
