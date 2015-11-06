@@ -7,11 +7,13 @@
         <div class="section__title">
           <h1 class="section-title">Contact Us</h1>
         </div>
+        {% if post.get_field('page_introduction') %}
         <div class="section__body">
           <div class="lead">
-            <p>Curabitur blandit tempus porttitor. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Nulla vitae elit libero, a pharetra augue. Etiam porta sem malesuada magna mollis euismod. Nulla vitae elit libero, a pharetra augue.</p>
+            {{ post.get_field('page_introduction') }}
           </div>
         </div>
+        {% endif %}
       </div>
     </div>
     <div class="l-blocks__block l-blocks__block--half bg-light-blue">
