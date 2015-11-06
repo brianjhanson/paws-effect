@@ -9,9 +9,7 @@
         </div>
         {% if post.get_field('page_introduction') %}
         <div class="section__body">
-          <div class="lead">
-            {{ post.get_field('page_introduction') }}
-          </div>
+          {{ post.get_field('page_introduction') }}
         </div>
         {% endif %}
       </div>
