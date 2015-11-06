@@ -25,4 +25,15 @@ $context = Timber::get_context();
 $post = new TimberPost();
 $context['post'] = $post;
 $context['global'] = get_fields('options');
+
+$context['events'] = Timber::get_posts(array(
+  'post_type' => 'event',
+  'posts_per_page' => 10,
+  'order' => 'DESC',
+  'orderby' => 'meta_value_num',
+  'meta_key' => 'event_date'
+), 'EventTimberPost');
+
+// var_dump($context['events']);
+
 Timber::render( array( 'page-' . $post->post_name . '.twig', 'page.twig' ), $context );
