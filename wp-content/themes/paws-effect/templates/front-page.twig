@@ -5,86 +5,12 @@
     <div class="section section--yellow section--hero">
       {% include '_partials/_home-hero.twig' %}
     </div>
-    <div class="l-front-page__services">
-      <section class="section">
-        <div class="l-grid l-grid--site">
-          <div class="section__title">
-            <h1 class="section-title">What we do</h1>
-          </div>
-          <div class="section__body">
-            <div class="l-block-grid">
-              {% for service in services %}
-              <div class="l-block-grid__item">
-                {% include '_partials/_tease.twig' with { post: service } %}
-              </div>
-              {% endfor %}
-            </div>
-          </div>
-        </div>
-      </section>
-    </div>
-
-    <div class="l-front-page__community">
-      <div class="l-grid l-grid--site">
-        <section class="section">
-          <div class="section__title">
-            <h1 class="section-title">Our Community</h1>
-          </div>
-          <div class="section__body">
-            <div class="l-community">
-              <div class="l-community__social">
-                <h3 class="section-sub-title">Latest from Facebook</h3>
-                {{ "[custom-facebook-feed]" | shortcodes }}
-              </div>
-              <div class="l-community__blog">
-                <div class="latest-post">
-                  <h3 class="section-sub-title">Latest from the Blog</h3>
-                  {% include '_partials/_post.twig' with { post: latestPost, excerpt: true } %}
-                </div>
-                {% include '_partials/_sign-up.twig' %}
-              </div>
-            </div>
-          </div>
-        </section>
-      </div>
-    </div> 
-
-    <div class="l-front-page__events">
-      <div class="l-grid l-grid--site">
-        <div class="section">
-          <div class="section__title">
-            <h1 class="section-title">Events</h1>
-          </div>
-          <div class="section__body">
-            <ul class="event-slider js-slider">
-              {% for event in events %}
-              <li class="event-slider__item js-slider__item">
-                <article class="event">
-                  <div class="event__thumb">
-                    {% if event.thumbnail | length %}
-                      <img src="{{ event.thumbnail.src | resize(400, 300) }}" alt="{{ event.title }}" />
-                    {% endif %}
-                  </div>
-                  <div class="event__info">
-                    <section class="event-info">
-                      <h1 class="event-info__title"><a href="{{ event.permalink }}">{{ event.title }}</a></h1>
-                      <h2 class="event-info__date">{{ event.get_field('event_date') | date('F j, Y') }}</h2>
-                    </section>
-                  </div>
-                </article>
-              </li>
-              {% endfor %}
-            </ul>
-          </div>
-          <div class="section__cta">
-            <a href="http://paws-effect.dogbizpro.com/Public/Registration/Index.aspx" class="btn">View complete events calendar</a>
-          </div>
-          <div class="section__sign-up">
-            {% include '_partials/_sign-up.twig' %}
-          </div>
-        </div>
-      </div>
-    </div>
+    
+    {# {% include '_partials/_front-page-services' %} #}
+    
+    {% include '_partials/_front-page-community.twig' %} 
+    
+    {% include '_partials/_front-page-events.twig' %} 
 
     <div class="l-front-page__contact">
       {% include '_partials/_contact.twig' %}

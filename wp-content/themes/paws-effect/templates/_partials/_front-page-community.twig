@@ -1,0 +1,24 @@
+<div class="l-front-page__community">
+  <div class="l-grid l-grid--site">
+    <section class="section">
+      <div class="section__title">
+        <h1 class="section-title">Our Community</h1>
+      </div>
+      <div class="section__body">
+        <div class="l-community">
+          <div class="l-community__social">
+            <h3 class="section-sub-title">Latest from Facebook</h3>
+            {{ "[custom-facebook-feed]" | shortcodes }}
+          </div>
+          <div class="l-community__blog">
+            <div class="latest-post">
+              <h3 class="section-sub-title">Latest from the Blog</h3>
+              {% include '_partials/_post.twig' with { post: latestPost, excerpt: true } %}
+            </div>
+            {% include '_partials/_sign-up.twig' %}
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>

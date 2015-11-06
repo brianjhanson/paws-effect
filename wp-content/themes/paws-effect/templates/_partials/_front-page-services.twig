@@ -1,0 +1,18 @@
+<div class="l-front-page__services">
+  <section class="section">
+    <div class="l-grid l-grid--site">
+      <div class="section__title">
+        <h1 class="section-title">What we do</h1>
+      </div>
+      <div class="section__body">
+        <div class="l-block-grid">
+          {% for service in services %}
+          <div class="l-block-grid__item">
+            {% include '_partials/_tease.twig' with { post: service } %}
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </section>
+</div>

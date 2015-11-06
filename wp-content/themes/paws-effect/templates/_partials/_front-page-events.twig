@@ -1,0 +1,36 @@
+<div class="l-front-page__events">
+  <div class="l-grid l-grid--site">
+    <div class="section">
+      <div class="section__title">
+        <h1 class="section-title">Events</h1>
+      </div>
+      <div class="section__body">
+        <ul class="event-slider js-slider">
+          {% for event in events %}
+          <li class="event-slider__item js-slider__item">
+            <article class="event">
+              <div class="event__thumb">
+                {% if event.thumbnail | length %}
+                  <img src="{{ event.thumbnail.src | resize(400, 300) }}" alt="{{ event.title }}" />
+                {% endif %}
+              </div>
+              <div class="event__info">
+                <section class="event-info">
+                  <h1 class="event-info__title"><a href="{{ event.permalink }}">{{ event.title }}</a></h1>
+                  <h2 class="event-info__date">{{ event.get_field('event_date') | date('F j, Y') }}</h2>
+                </section>
+              </div>
+            </article>
+          </li>
+          {% endfor %}
+        </ul>
+      </div>
+      <div class="section__cta">
+        <a href="http://paws-effect.dogbizpro.com/Public/Registration/Index.aspx" class="btn">View complete events calendar</a>
+      </div>
+      <div class="section__sign-up">
+        {% include '_partials/_sign-up.twig' %}
+      </div>
+    </div>
+  </div>
+</div>
