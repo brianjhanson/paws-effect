@@ -1,0 +1,22 @@
+{% set nextPost = post.next() %}
+{% set prevPost = post.prev() %}
+
+<div class="post-pagination">
+  {% if nextPost | length %}
+    <a href="{{ nextPost.permalink }}" class="post-pagination__link post-pagination__link--next">
+      <div class="pagination-link">
+        <span class="pagination-link__eyebrow">Next Post</span>
+        <span class="pagination-link__title">{{ nextPost.title }}</span>
+      </div>
+    </a>
+  {% endif %}
+
+  {% if prevPost | length %}
+    <a href="{{ prevPost.permalink }}" class="post-pagination__link post-pagination__link--prev">
+      <div class="pagination-link">
+        <span class="pagination-link__eyebrow">Previous Post</span>
+        <span class="pagination-link__title">{{ prevPost.title }}</span>
+      </div>
+    </a>
+  {% endif %}
+</div>

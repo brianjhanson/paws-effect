@@ -1,0 +1,23 @@
+.post-pagination {
+  @include container;
+  @include rem(margin-top, 60px);
+  @include rem(margin-bottom, 40px);
+}
+
+.post-pagination__link {
+  display: block;
+  text-decoration: none;
+}
+
+.post-pagination__link--prev {
+  @include mq(small) {
+    @include span(1 of 2 at 1);
+  }
+}
+
+.post-pagination__link--next {
+  @include mq(small) {
+    @include span(1 of 2 at 2);
+    text-align: right;
+  }
+}

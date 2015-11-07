@@ -1,0 +1,14 @@
+.pagination-link {
+  
+}
+
+.pagination-link__eyebrow {
+  @include rem(font-size, 14px);
+  font-weight: 700;
+  display: block;
+}
+
+.pagination-link__title {
+  text-decoration: underline;
+  color: c(havelock);
+}

@@ -1,0 +1,12 @@
+<article class="post post--{{ post.post_type }} post--single">
+  <header class="post__header">
+    <h1 class="post-title">{{ post.title }}</h1>
+    <div class="post-meta">{{ post.date }}</div>
+  </header>
+  <div class="post__body">
+    {{ post.content }}
+  </div>
+  <footer class="post__footer">
+  </footer>
+</article>
+{% include '_partials/_post-pagination.twig' %}
