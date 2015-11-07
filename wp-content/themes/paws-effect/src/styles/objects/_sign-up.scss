@@ -8,3 +8,15 @@
   display: block;
   font-weight: 700;
 }
+
+// Contact form 7 junk
+.sign-up {
+  div.wpcf7 {
+    div.wpcf7-response-output {
+      @include rem(margin, 10px 0 0);
+      color: #fff;
+      border: none;
+      border-radius: 3px;
+    }
+  }
+}

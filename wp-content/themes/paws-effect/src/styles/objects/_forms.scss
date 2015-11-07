@@ -1,6 +1,7 @@
 input,
 textarea {
   padding: .5em;
+  border-radius: 3px;
   width: 100%;
   border: 0;
   border: 1px solid #C2DBF2; 
@@ -15,7 +16,6 @@ textarea {
 input[type="submit"] {
   display: inline-block;
   vertical-align: middle;
-  min-width: 150px;
   border-radius: 3px;
   width: auto;
   background: none;
@@ -37,8 +37,23 @@ div.wpcf7 {
     margin-left: 1rem;
   }
 
+  span[role="alert"].wpcf7-not-valid-tip {
+    color: rgba(237, 50, 45, 0.86);
+  }
+
   .wpcf7-response-output {
+    @include rem(padding, 5px 10px);
     margin-left: 0;
     margin-right: 0;
+
+    &.wpcf7-validation-errors {
+      background-color: rgba(237, 50, 45, 0.86);
+    }
+
+    &.wpcf7-mail-sent-ok {
+      background-color: rgb(84, 185, 111);
+    }
   }
+
+
 }

@@ -1,22 +1,26 @@
 .subscribe {
-  display: flex;
+  @include container;
+  position: relative;
 }
 
 .subscribe__field {
-  width: 80%;
   padding: .5em;
+  padding-right: 120px;
   box-sizing: inherit;
   display: block;
-  border: 1px solid #C2DBF2;
-  border-right: 0;
-
-  @include on-event {
-    outline: 0;
-    border-color: c(havelock);
-  }
 }
 
-.subscribe__submit {
-  min-width: 150px;
+.subscribe__submit,
+.subscribe .wpcf7-submit {
+  min-width: 100px;
+  position: absolute;
+  top: 0;
+  right: 0;
   border: 1px solid c(lightning);
+}
+
+.subscribe .ajax-loader {
+  position: absolute;
+  right: -24px;
+  top: .5em;
 }
