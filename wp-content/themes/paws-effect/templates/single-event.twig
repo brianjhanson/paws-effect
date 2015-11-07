@@ -62,25 +62,27 @@
           <div class="widget">
             <h3 class="widget__title">Where</h3>
             <div class="widget__body">
-              {% for row in post.get_field('event_address') %}
-                {% if row.address_title | length %}
-                  <h3>{{ row.address_title }}</h3>
-                {% endif %}
-
-                <address class="address">
-                  <div class="address__street">{{ row.street_address_1 }}</div>
-                  {% if row.street_address_2 | length %}
-                    <div class="address__street">{{ row.street_address_2 }}</div>
+              {% if post.get_field('event_address') %}
+                {% for row in post.get_field('event_address') %}
+                  {% if row.address_title | length %}
+                    <h3>{{ row.address_title }}</h3>
                   {% endif %}
-                  <div class="address__locality">
-                    <span>{{ row.city }}</span>
-                    <span>{{ row.state }}</span>,
-                    <span>{{ row.zip_code }}</span>
-                  </div>
-                </address>
 
-                <a href="https://maps.google.com/?q={{ row | join(' ') }}" class="text-btn" target="_blank">Get Directions</a>
-              {% endfor %}
+                  <address class="address">
+                    <div class="address__street">{{ row.street_address_1 }}</div>
+                    {% if row.street_address_2 | length %}
+                      <div class="address__street">{{ row.street_address_2 }}</div>
+                    {% endif %}
+                    <div class="address__locality">
+                      <span>{{ row.city }}</span>
+                      <span>{{ row.state }}</span>,
+                      <span>{{ row.zip_code }}</span>
+                    </div>
+                  </address>
+
+                  <a href="https://maps.google.com/?q={{ row | join(' ') }}" class="text-btn" target="_blank">Get Directions</a>
+                {% endfor %}
+              {% endif %}
             </div>
           </div>
         </div>
