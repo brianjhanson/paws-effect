@@ -21,8 +21,7 @@ function initSlider(options) {
       {
         imagesLoaded: true,
         cellSelector: self.settings.slideSelector,
-        cellAlign: 'left',
-        contain: true
+        cellAlign: 'left'
       }
     );
 
