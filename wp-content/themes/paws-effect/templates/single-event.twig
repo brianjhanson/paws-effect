@@ -59,37 +59,39 @@
               </div>
             </div>
           </div>
+          {% if post.get_field('event_address') %}
           <div class="widget">
             <h3 class="widget__title">Where</h3>
             <div class="widget__body">
-              {% if post.get_field('event_address') %}
-                {% for row in post.get_field('event_address') %}
-                  {% if row.address_title | length %}
-                    <h3>{{ row.address_title }}</h3>
+              {% for row in post.get_field('event_address') %}
+                {% if row.address_title | length %}
+                  <h3>{{ row.address_title }}</h3>
+                {% endif %}
+
+                <address class="address">
+                  <div class="address__street">{{ row.street_address_1 }}</div>
+                  {% if row.street_address_2 | length %}
+                    <div class="address__street">{{ row.street_address_2 }}</div>
                   {% endif %}
+                  <div class="address__locality">
+                    <span>{{ row.city }}</span>
+                    <span>{{ row.state }}</span>,
+                    <span>{{ row.zip_code }}</span>
+                  </div>
+                </address>
 
-                  <address class="address">
-                    <div class="address__street">{{ row.street_address_1 }}</div>
-                    {% if row.street_address_2 | length %}
-                      <div class="address__street">{{ row.street_address_2 }}</div>
-                    {% endif %}
-                    <div class="address__locality">
-                      <span>{{ row.city }}</span>
-                      <span>{{ row.state }}</span>,
-                      <span>{{ row.zip_code }}</span>
-                    </div>
-                  </address>
-
-                  <a href="https://maps.google.com/?q={{ row | join(' ') }}" class="text-btn" target="_blank">Get Directions</a>
-                {% endfor %}
-              {% endif %}
+                <a href="https://maps.google.com/?q={{ row | join(' ') }}" class="text-btn" target="_blank">Get Directions</a>
+              {% endfor %}
             </div>
+            {% endif %}
           </div>
         </div>
-
+        
+        {% if post.get_field('event_address') %}
         <div class="event-map">
           <div class="js-map" data-lat="{{ map.lat }}" data-lng="{{ map.lng }}"></div>
         </div>
+        {% endif %}
 
         {% if not event_passed and post.get_field('cta_link') | length %}
           <a href="{{ post.get_field('cta_link') }}" class="btn btn--full btn--rsvp" target="_blank">{{ post.get_field('cta_text') }}</a>
