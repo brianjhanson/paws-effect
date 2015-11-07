@@ -8,7 +8,7 @@
   max-width: 240px;
   
   @include mq(small) {
-    @include span(4 at 1);
+    @include span(2 at 1);
   }
 }
 
