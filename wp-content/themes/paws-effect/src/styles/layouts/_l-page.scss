@@ -1,5 +1,9 @@
 .l-page {
-  @include rem(padding, 20px 0);
+  @include rem(padding, 30px 0);
+
+  @include mq(small) {
+    @include rem(padding, 40px 0);
+  }
 
   @include mq(medium) {
     @include rem(padding, 80px 0);

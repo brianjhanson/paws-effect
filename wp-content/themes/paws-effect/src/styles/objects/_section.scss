@@ -25,12 +25,13 @@
 }
 
 .section__sign-up {
-  @include rem(margin-top, 40px);
+  @include rem(margin, 40px auto 0);
   @include rem(padding-top, 20px);
   text-align: center;
   border-top: 1px solid #C2DBF2;
+  max-width: 500px;
 
-  @include mq(small) {
+  @include mq(medium) {
     @include rem(padding, 20px 40px 0);
     @include rem(margin, 60px auto 0);
     width: span(5);

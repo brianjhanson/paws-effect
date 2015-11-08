@@ -21,6 +21,7 @@
 
 .l-blocks__block--half {
   @include rem(padding, 0 15px);
+  width: 100%;
 
   @include mq(medium) {
     width: 50%;
@@ -71,4 +72,8 @@
   .l-blocks__block {
     vertical-align: middle;
   }
+}
+
+.l-blocks__block--no-pad {
+  padding: 0;
 }

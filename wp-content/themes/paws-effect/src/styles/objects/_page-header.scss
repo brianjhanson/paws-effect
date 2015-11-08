@@ -1,7 +1,12 @@
 .page-header {
+  display: none;
   padding-top: 20%;
   position: relative;
   overflow: hidden;
+
+  @include mq(medium) {
+    display: block;
+  }
 }
 
 .page-header__img {

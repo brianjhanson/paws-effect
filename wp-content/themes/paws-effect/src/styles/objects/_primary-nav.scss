@@ -9,9 +9,12 @@
 
   @include mq(small) {
     @include show;
-    text-align: right;
     background-color: transparent;
     padding: 0;
+  }
+
+  @include mq(medium) {
+    text-align: right;
   }
 
   a {

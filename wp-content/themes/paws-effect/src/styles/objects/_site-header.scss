@@ -6,9 +6,9 @@
 
 .site-header__logo {
   margin: 0 auto;
-  max-width: 240px;
+  max-width: 180px;
   
-  @include mq(small) {
+  @include mq(medium) {
     @include span(2 at 1);
   }
 }
@@ -17,8 +17,9 @@
   @include rem(padding, 1em 0);
   text-align: center;
   
-  @include mq(small) {
+  @include mq(medium) {
     @include span(5 at 5);
+    padding: 0;
   }
 }
 

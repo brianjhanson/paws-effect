@@ -11,7 +11,7 @@
   max-width: 320px;
   margin-right: gutter() / 2;
 
-  @include mq(small) {
+  @include mq(medium) {
     width: span(3 of 8);
   }
 }

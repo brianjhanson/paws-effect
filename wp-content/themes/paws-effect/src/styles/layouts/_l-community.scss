@@ -5,6 +5,10 @@
 .l-community__social {
 
   @include mq(medium) {
+    @include span(5 of 12 at 1);
+  }
+
+  @include mq(large) {
     @include span(4 at 1);
   }
 }
@@ -13,6 +17,10 @@
   @include rem(margin-top, 30px);
 
   @include mq(medium) {
+    @include span(6 of 12 at 7);
+  }
+
+  @include mq(large) {
     @include span(4 at 6);
     margin-top: 0;
   }

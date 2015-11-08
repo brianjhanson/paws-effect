@@ -2,6 +2,16 @@
   @include container;
   display: flex;
   flex-direction: column;
+
+  @include mq(small) {
+    max-width: 500px;
+    margin: 0 auto;
+  }
+
+  @include mq(medium) {
+    max-width: none;
+    flex-direction: row;
+  }
 }
 
 .l-single__content {
@@ -9,18 +19,22 @@
   width: 100%;
   order: 2;
 
-  @include mq(large) {
+  @include mq(medium) {
+    order: 1;
     width: span(5);
     flex-grow: 1;
+  }
+
+  @include mq(large) {
   }
 }
 
 .l-single__sidebar {
   @include rem(padding, 0 15px);
   order: 1;
-  width: 100%;
 
-  @include mq(large) {
+  @include mq(medium) {
+    order: 2;
     width: span(2);
     padding-left: gutter();
     flex-grow: 1;

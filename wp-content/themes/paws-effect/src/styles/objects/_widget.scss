@@ -1,5 +1,5 @@
 .widget {
-  max-width: 300px;
+  // max-width: 300px;
 
   & + & {
     @include rem(margin-top, 40px);
