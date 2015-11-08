@@ -32,10 +32,11 @@
   order: 1;
 
   @include mq(medium) {
-    padding: 0;
     order: 2;
+    padding: 0;
     width: span(2);
     padding-left: gutter();
+    padding-right: span(1);
     flex-grow: 1;
   }
 }
@@ -56,7 +57,7 @@
   .l-single__content {
     @include rem(padding, 0 15px);
 
-    @include mq(large) {
+    @include mq(medium) {
       padding-left: span(1);
       padding-right: gutter() * 2;
     }
@@ -65,8 +66,8 @@
   .l-single__sidebar {
     @include rem(padding, 0 15px);
 
-    @include mq(large) {
-      padding: 0;
+    @include mq(medium) {
+      padding-left: gutter();
       padding-right: span(1);
     }
   }
