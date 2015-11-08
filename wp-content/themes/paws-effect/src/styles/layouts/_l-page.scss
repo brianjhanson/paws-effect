@@ -1,9 +1,17 @@
 .l-page {
-  @include rem(padding, 80px 0);
+  @include rem(padding, 20px 0);
+
+  @include mq(medium) {
+    @include rem(padding, 80px 0);
+  }
 }
 
 .l-page__header {
-  padding: 0 6% 40px;
+  padding: 0 3%;
+
+  @include mq(medium) {
+    padding: 0 6% 40px;
+  }
 }
 
 .l-page--bottom {

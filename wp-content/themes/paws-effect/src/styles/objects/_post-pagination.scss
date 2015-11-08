@@ -5,8 +5,13 @@
 }
 
 .post-pagination__link {
+  @include rem(margin-top, 20px);
   display: block;
   text-decoration: none;
+
+  @include mq(medium) {
+    margin-top: 0;
+  }
 }
 
 .post-pagination__link--prev {

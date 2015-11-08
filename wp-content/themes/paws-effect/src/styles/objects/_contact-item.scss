@@ -9,15 +9,21 @@
 .contact-item__title {
   @include rem(width, 80px);
   font-weight: 700;
-  display: inline-block;
   vertical-align: baseline;
+
+  @include mq(small) {
+    display: inline-block;
+  }
 }
 
 .contact-item__number {
   @include rem(font-size, 18px);
-  display: inline-block;
   vertical-align: baseline;
   color: #4D678C;
+
+  @include mq(small) {
+    display: inline-block;
+  }
 
   @include mq(large) {
     @include rem(font-size, 28px);

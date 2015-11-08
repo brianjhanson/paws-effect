@@ -5,18 +5,18 @@
 
 .giga-head {
   // @include h-size(giga);
-  @include rem(font-size, 36px);
+  @include rem(font-size, 34px);
   line-height: 1.1;
 
   @include mq(small) {
-    @include rem(font-size, 64px);
+    @include rem(font-size, 42px);
   }
 
   @include mq(medium) {
-    @include rem(font-size, 96px);
+    @include rem(font-size, 84px);
   }
 
   @include mq(large) {
-    @include rem(font-size, 120px);
+    @include rem(font-size, 96px);
   }
 }

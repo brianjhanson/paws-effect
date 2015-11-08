@@ -20,19 +20,24 @@
 }
 
 .l-blocks__block--half {
-
-  &:first-child {
-    padding-right: gutter();
-    padding-left: 6%;
-  }
-
-  &:last-child {
-    padding-left: gutter();
-    padding-right: 6%;
-  }
+  @include rem(padding, 0 15px);
 
   @include mq(medium) {
     width: 50%;
+  }
+
+  &:first-child {
+    @include mq(medium) {
+      padding-right: gutter();
+      padding-left: 6%;
+    }
+  }
+
+  &:last-child {
+    @include mq(medium) {
+      padding-left: gutter();
+      padding-right: 6%;
+    }
   }
 }
 

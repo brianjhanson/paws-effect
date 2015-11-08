@@ -3,13 +3,20 @@
   margin: 0;
   padding: 0;
   list-style: none;
+  background-color: c(lightning);
+  border-radius: 3px;
+  padding: .5em;
 
   @include mq(small) {
     @include show;
     text-align: right;
+    background-color: transparent;
+    padding: 0;
   }
 
   a {
+    display: inline-block;
+    padding: 0.25em 0;
     color: c(text);
     text-decoration: none;
 
@@ -20,6 +27,7 @@
 
   .is-open & {
     @include show;
+    margin-top: .5em;
   }
 }
 
@@ -39,7 +47,11 @@
 // }
 
 .primary-nav--footer {
+  @include show;
   text-align: left;
+  background-color: transparent;
+  padding: 0;
+
   a {
     color: #fff;
 
@@ -48,9 +60,9 @@
     }
   }
 
-  > li:last-child a {
-    background: none;
-    padding: 0;
-    color: c(mustard);
-  }
+  // > li:last-child a {
+  //   background: none;
+  //   padding: 0;
+  //   color: c(mustard);
+  // }
 }

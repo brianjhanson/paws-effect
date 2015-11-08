@@ -1,9 +1,13 @@
 .l-single {
   @include container;
   display: flex;
+  flex-direction: column;
 }
 
 .l-single__content {
+  @include rem(padding, 0 15px);
+  width: 100%;
+  order: 2;
 
   @include mq(large) {
     width: span(5);
@@ -12,6 +16,9 @@
 }
 
 .l-single__sidebar {
+  @include rem(padding, 0 15px);
+  order: 1;
+  width: 100%;
 
   @include mq(large) {
     width: span(2);
@@ -34,12 +41,21 @@
 
 .l-single--full {
   .l-single__content {
-    padding-left: span(1);
-    padding-right: gutter() * 2;
+    @include rem(padding, 0 15px);
+
+    @include mq(large) {
+      padding-left: span(1);
+      padding-right: gutter() * 2;
+    }
   }
 
   .l-single__sidebar {
-    padding-right: span(1);
+    @include rem(padding, 0 15px);
+
+    @include mq(large) {
+      padding: 0;
+      padding-right: span(1);
+    }
   }
 }
 

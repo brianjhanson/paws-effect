@@ -3,5 +3,9 @@
 }
 
 .l-grid--site {
-  padding: 0 span(1);
+  @include rem(padding, 0 15px);
+
+  @include mq(medium) {
+    padding: 0 span(1);
+  }
 }

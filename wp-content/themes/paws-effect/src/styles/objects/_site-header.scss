@@ -5,6 +5,7 @@
 }
 
 .site-header__logo {
+  margin: 0 auto;
   max-width: 240px;
   
   @include mq(small) {
@@ -13,7 +14,8 @@
 }
 
 .site-header__nav {
-  @include rem(margin, 1em 0);
+  @include rem(padding, 1em 0);
+  text-align: center;
   
   @include mq(small) {
     @include span(5 at 5);
@@ -21,6 +23,7 @@
 }
 
 .site-header__trigger {
+  font-weight: bold;
 
   @include mq(small) {
     display: none;

@@ -1,3 +1,7 @@
 .section-title {
-  @include rem(font-size, 48px);
+  @include rem(font-size, 32px);
+
+  @include mq(small) {
+    @include rem(font-size, 48px);
+  }
 }

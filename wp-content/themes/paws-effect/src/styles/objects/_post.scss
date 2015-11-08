@@ -29,16 +29,25 @@
 }
 
 .post--featured {
+  @include rem(margin-top, 40px);
   @include rem(margin-bottom, 80px);
 
+  @include mq(medium) {
+    margin-top: 0;
+  }
+
   .post__header {
-    margin-left: span(1 of 6);
-    margin-right: span(1);
+    @include mq(medium) {
+      margin-left: span(1 of 6);
+      margin-right: span(1);
+    }
   }
 
   .post__body {
-    margin-left: span(1 of 6);
-    margin-right: span(1);
+    @include mq(medium) {
+      margin-left: span(1 of 6);
+      margin-right: span(1);
+    }
   }
 
   .post__hero {

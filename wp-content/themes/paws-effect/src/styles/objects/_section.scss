@@ -25,11 +25,16 @@
 }
 
 .section__sign-up {
-  @include rem(padding, 20px 40px 0);
-  @include rem(margin, 60px auto 0);
-  width: span(5);
+  @include rem(margin-top, 40px);
+  @include rem(padding-top, 20px);
   text-align: center;
   border-top: 1px solid #C2DBF2;
+
+  @include mq(small) {
+    @include rem(padding, 20px 40px 0);
+    @include rem(margin, 60px auto 0);
+    width: span(5);
+  }
 }
 
 
