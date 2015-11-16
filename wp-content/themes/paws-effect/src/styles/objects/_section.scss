@@ -42,3 +42,11 @@
 .section--centered {
   text-align: center;
 }
+
+.section--top {
+  padding-top: 0;
+
+  @include mq(small) {
+    padding-top: 0;
+  }
+}

@@ -1,57 +1,62 @@
 {% extends "base.twig" %}
 
 {% block content %}
-	<div class="l-single">
-		<div class="l-single__content">
-			<div class="l-page">
-				<section class="post post--featured post--{{ post.post_type }}">
-					{% if post.thumbnail | length %}
-					<div class="post__hero">
-						<img src="{{ post.thumbnail.src|resize(1200, 800) }}" />
-					</div>
-					{% endif %}
-					<header class="post__header">
-					  <h1 class="post-title">{{ post.post_title }}</h1>
-					</header>
-					<div class="post__body">
-					  <div class="rich-text">
-				      {{ post.content }}
-					  </div>
-				  </div>
-					
-					<div class="post__body">
-					  <div class="l-events-list">
-					  	{% for event in events %}
-					  		<div class="l-events-list__item">
-					  			<div class="l-event-info">
-					  			  <div class="l-event-info__date">
-					  			    <div class="event-date">
-					  			      <div class="event-date__month">
-					  			        {{ event.event_date | date('M')}}
-					  			      </div>
-					  			      <div class="event-date__day">
-					  			        {{ event.event_date | date('j') }}
-					  			      </div>
-					  			    </div>
-					  			  </div>
-					  			  <div class="l-event-info__meta">
-						  			  <h2><a href="{{ event.permalink }}">{{ event.post_title }}</a></h2>
-					  			    <div>{{ event.event_date | date('l') }} @ {{ event.event_time }}</div>
-					  			  </div>
-					  			</div>
-					  		</div>
-					  	{% endfor %}
-					  </div>
-				  </div>
-				</section>
-			</div>
-		</div>
-		<aside class="l-single__sidebar bg-light-blue">
-			<div class="l-page">
-				{% include ['_partials/_sidebar-' ~ post.post_name ~ '.twig', '_partials/_sidebar.twig'] ignore missing %}
-			</div>
-		</aside>
-	</div>
+  <div class="l-single">
+    <div class="l-single__content">
+      <div class="l-page">
+        <section class="post post--featured post--{{ post.post_type }}">
+          {% if post.thumbnail | length %}
+          <div class="post__hero">
+            <img src="{{ post.thumbnail.src|resize(1200, 800) }}" />
+          </div>
+          {% endif %}
+          <header class="post__header">
+            <h1 class="post-title">{{ post.post_title }}</h1>
+          </header>
+          <div class="post__body">
+            <div class="rich-text">
+              {{ post.content }}
+            </div>
+          </div>
+          
+          <div class="post__body">
+            <section class="section section--top">
+              <h2 class="section-sub-title">Upcoming events</h2>
+              {% if upcoming_events %}
 
-	{% include ['_partials/_page-content-' ~ post.post_name ~ '.twig'] ignore missing %}
+              <div class="l-events-list">
+                {% for event in upcoming_events %}
+                  <div class="l-events-list__item">
+                    {% include '_partials/_event-list-item.twig' %}
+                  </div>
+                {% endfor %}
+              </div>
+              {% else %}
+                <div class="panel panel--inline panel--generic">
+                  <p>There are currently no upcoming events scheduled.</p>
+                </div>
+              {% endif %}
+            </section>
+            <section class="section section--top">
+              <h2 class="section-sub-title">Past Events</h2>
+              <div class="l-events-list">
+                {% for event in past_events %}
+                  <div class="l-events-list__item">
+                    {% include '_partials/_event-list-item.twig' %}
+                  </div>
+                {% endfor %}
+              </div>
+            </section>
+          </div>
+        </section>
+      </div>
+    </div>
+    <aside class="l-single__sidebar bg-light-blue">
+      <div class="l-page">
+        {% include ['_partials/_sidebar-' ~ post.post_name ~ '.twig', '_partials/_sidebar.twig'] ignore missing %}
+      </div>
+    </aside>
+  </div>
+
+  {% include ['_partials/_page-content-' ~ post.post_name ~ '.twig'] ignore missing %}
 {% endblock %}

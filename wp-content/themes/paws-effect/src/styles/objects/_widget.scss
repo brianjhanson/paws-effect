@@ -15,3 +15,7 @@
 .widget__body {
   @include rem(font-size, 15px);
 }
+
+.widget__footer {
+  @include rem(margin-top, 20px);
+}

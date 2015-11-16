@@ -3,21 +3,23 @@
 {% block content %}
 	<div class="l-single">
 		<div class="l-single__content">
-			<article class="post post--featured post--{{ post.post_type }}">
-				{% if post.thumbnail | length %}
-				<div class="post__hero">
-					<img src="{{ post.thumbnail.src|resize(1200, 800) }}" />
-				</div>
-				{% endif %}
-				<header class="post__header">
-				  <h1 class="post-title">{{ post.post_title }}</h1>
-				</header>
-				<div class="post__body">
-				  <div class="rich-text">
-			      {{ post.content }}
+			<div class="l-page">
+				<article class="post post--featured post--{{ post.post_type }}">
+					{% if post.thumbnail | length %}
+					<div class="post__hero">
+						<img src="{{ post.thumbnail.src|resize(1200, 800) }}" />
+					</div>
+					{% endif %}
+					<header class="post__header">
+					  <h1 class="post-title">{{ post.post_title }}</h1>
+					</header>
+					<div class="post__body">
+					  <div class="rich-text">
+				      {{ post.content }}
+					  </div>
 				  </div>
-			  </div>
-			</article>
+				</article>
+			</div>
 		</div>
 		<aside class="l-single__sidebar bg-light-blue">
 			<div class="l-page">
