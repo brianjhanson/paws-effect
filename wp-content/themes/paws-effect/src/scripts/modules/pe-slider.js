@@ -12,10 +12,6 @@ function initSlider(options) {
   }, options);
 
   var _init = function() {
-    var flktyOpts = {
-      // Options will go here
-    };
-
     self.slider = new Flickity(
       self.settings.containerSelector, 
       {
@@ -24,8 +20,7 @@ function initSlider(options) {
         cellAlign: 'left'
       }
     );
-
-  };
+  }
 
   _init();
 }
