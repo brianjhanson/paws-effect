@@ -28,7 +28,7 @@ $context['events'] = Timber::get_posts(array(
   'order' => 'DESC',
   'orderby' => 'meta_value_num',
   'meta_key' => 'event_date'
-));
+), 'EventTimberPost');
 
 $context['global'] = get_fields('options');
 Timber::render( array( 'front-page.twig', 'page.twig' ), $context );
