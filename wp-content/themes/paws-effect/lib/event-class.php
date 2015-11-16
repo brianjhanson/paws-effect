@@ -32,10 +32,27 @@
       }
 
       return $start_time;
-
     }
 
-    public function event_date() {
-      return date_create_from_format('Ymd', get_field('event_date', $this->ID));
+    public function event_date($field = 'event_date') {
+      return date_create_from_format('Ymd', get_field($field, $this->ID));
     }
+
+    public function end_date($format = 'Ymd') {
+      if (get_field('end_date', $this->ID)) {
+        return $this->event_date('end_date')->format($format);
+      }
+      return false;
+    }
+
+    public function start_date($format = 'Ymd') {
+      return $this->event_date()->format($format);
+    }
+
+    public function has_passed() {
+      $today = date_create('now', new DateTimeZone('America/Chicago'));
+      $date = $this->event_date();
+      return $today->format('Ymd') > $date->format('Ymd');
+    }
+
   }
