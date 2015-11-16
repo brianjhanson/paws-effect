@@ -23,6 +23,40 @@
 
 $context = Timber::get_context();
 $post = new TimberPost();
+$today = date_create('now', new DateTimeZone('America/Chicago'));
 $context['post'] = $post;
 $context['global'] = get_fields('options');
+
+$context['past_events'] = Timber::get_posts(array(
+  'post_type' => 'event',
+  'posts_per_page' => 10,
+  'order' => 'DESC',
+  'orderby' => 'meta_value_num',
+  'meta_query' => array(
+    array(
+      'key' => 'event_date',
+      'type' => 'NUMERIC',
+      'value' => $today->format('Ymd'),
+      'compare' => '<',
+    ),
+  )
+), 'EventTimberPost');
+
+$context['upcoming_events'] = Timber::get_posts(array(
+  'post_type' => 'event',
+  'posts_per_page' => 10,
+  'order' => 'DESC',
+  'orderby' => 'meta_value_num',
+  'meta_query' => array(
+    array(
+      'key' => 'event_date',
+      'type' => 'NUMERIC',
+      'value' => $today->format('Ymd'),
+      'compare' => '>=',
+    ),
+  ),
+), 'EventTimberPost');
+
+// var_dump($context['events']);
+
 Timber::render( array( 'page-' . $post->post_name . '.twig', 'page.twig' ), $context );

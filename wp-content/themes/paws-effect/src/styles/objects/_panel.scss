@@ -1,5 +1,5 @@
 .panel {
-  @include rem(padding, 16px 16px 24px);
+  @include rem(padding, 16px);
   border-radius: 3px;
 }
 
@@ -7,4 +7,12 @@
   @include rem(padding, 4px 8px);
   @include rem(margin-bottom, 10px);
   background-color: rgba(c(havelock), 0.2);
+}
+
+.panel--generic {
+  background-color: c(light-blue);
+}
+
+.panel--inline {
+  display: inline-block;
 }

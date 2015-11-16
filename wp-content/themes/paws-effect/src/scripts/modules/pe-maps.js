@@ -31,7 +31,7 @@ function drawMap() {
       zoom: 17
     });
 
-    var marker = new google.maps.Marker({
+    new google.maps.Marker({
       position: pos,
       map: map
     });
@@ -43,7 +43,6 @@ function trainingCenter() {
 
   var lat = self.$map.attr('data-lat');
   var lng = self.$map.attr('data-lng');
-  var addr = self.$map.attr('data-addr');
 
   GoogleMapsLoader.load(function(google) {
     var pos = new google.maps.LatLng(lat, lng);

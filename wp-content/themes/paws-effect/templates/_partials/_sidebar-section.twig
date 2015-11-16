@@ -1,0 +1,25 @@
+<div class="widget">
+  <h3 class="widget__title">{{ section.section_title }}</h3>
+  <div class="widget__body">
+    {% if section.section_type == 'list' %}
+      <ul class="sidebar-list">
+      {% for item in section.section_list %}
+        <li>{{ item.list_item }}</li>
+      {% endfor %}
+      </ul>
+    {% else %}
+      <div class="rich-text">
+        {{ section.section_content }}
+      </div>
+    {% endif %}
+
+    {% if section.show_cta and section.section_cta | length %}
+    <div class="widget__footer">
+      {% for cta in section.section_cta %}
+        {% set link = cta['cta_' ~ cta.cta_type ~ '_link'] %}
+        <a href="{{ link }}" class="btn">{{ cta.cta_text }}</a>
+      {% endfor %}
+    </div>
+    {% endif %}
+  </div>
+</div>
