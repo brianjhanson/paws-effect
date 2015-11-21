@@ -10,17 +10,11 @@
   display: block;
 }
 
-.subscribe__submit,
-.subscribe .wpcf7-submit {
+input[type="submit"].subscribe__submit {
   min-width: 100px;
   position: absolute;
   top: 0;
   right: 0;
+  border-radius: 0 3px 3px 0;
   border: 1px solid c(lightning);
-}
-
-.subscribe .ajax-loader {
-  position: absolute;
-  right: -24px;
-  top: .5em;
 }
