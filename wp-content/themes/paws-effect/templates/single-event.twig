@@ -2,17 +2,14 @@
 {% set event_passed = event_date | date('Ymd') < "now" | date('Ymd') %}
 
 {% block content %}
-  {% if post.thumbnail | length %}
-  <div class="page-header">
-    <img src="{{ post.thumbnail.src | resize(1200, 240) }}" class="page-header__img" /> 
-  </div>
-  {% endif %}
-
   <div class="l-single l-single--full">
     <div class="l-single__content">
       <div class="l-page">
         <article class="post post--{{ post.post_type }}">
           <header class="post__header">
+            {% if post.thumbnail | length %}
+              <img src="{{ post.thumbnail.src }}" class="post-hero" />
+            {% endif %}
             <h1 class="post-title">{{ post.post_title }}</h1>
           </header>
           <div class="post__body">
@@ -86,7 +83,7 @@
             {% endif %}
           </div>
         </div>
-        
+
         {% if post.get_field('event_address') %}
         <div class="event-map">
           <div class="js-map" data-lat="{{ map.lat }}" data-lng="{{ map.lng }}"></div>
@@ -99,7 +96,7 @@
       </div>
     </aside>
   </div>
-  
+
 {#   <div class="l-page l-page--bottom">
     <div class="l-grid l-grid--site">
       <h2 class="section-title">Gallery</h2>
