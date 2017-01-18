@@ -4,7 +4,7 @@ textarea {
   border-radius: 3px;
   width: 100%;
   border: 0;
-  border: 1px solid #C2DBF2; 
+  border: 1px solid #C2DBF2;
   transition: all 0.3s cubic-bezier(0,.83,.26,1);
 
   @include on-event {
@@ -28,6 +28,11 @@ input[type="submit"] {
   @include on-event {
     background-color: c(lightning);
   }
+}
+
+input#donateBtn {
+  background-color: c(havelock) !important;
+  color: c(light-blue);
 }
 
 div.wpcf7 {
@@ -55,6 +60,4 @@ div.wpcf7 {
       background-color: rgb(84, 185, 111);
     }
   }
-
-
 }

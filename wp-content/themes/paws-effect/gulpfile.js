@@ -64,7 +64,7 @@ gulp.task('styles', function() {
 //////////////////////////////////////////////////////////////////////
 
 /*
-Reviews files for errors and coding consistency 
+Reviews files for errors and coding consistency
 */
 
 gulp.task('lint', function() {
@@ -112,7 +112,7 @@ gulp.task('scripts', ['lint'], function() {
   })
   .pipe(source('bundle.js'))
   .pipe(buffer())
-  // .pipe($.uglify())
+  .pipe($.uglify())
   .pipe(gulp.dest(paths.scriptDist))
   .pipe(browserSync.reload({ stream: true, once: true }));
 });
