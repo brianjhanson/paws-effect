@@ -34,21 +34,6 @@
   }
 }
 
-
-// .primary-nav > li:last-child {
-//   @include mq(small) {
-//     margin-right: 0;
-//   }
-// }
-
-// .primary-nav > li:last-child a {
-//   @include mq(small) {
-//     padding: .5em 1em;
-//     background-color: #fff;
-//     border-radius: 40px;
-//   }
-// }
-
 .primary-nav--footer {
   @include show;
   text-align: left;
@@ -62,10 +47,4 @@
       color: c(havelock);
     }
   }
-
-  // > li:last-child a {
-  //   background: none;
-  //   padding: 0;
-  //   color: c(mustard);
-  // }
 }
